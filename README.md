@@ -19,6 +19,26 @@ A Riot development API key is temporary and expires after 24 hours. When the key
 
 The API key must never be committed to GitHub or shared publicly.
 
+## CitoAPI account
+
+To use the CitoAPI, each developer must create an account and obtain an API key:
+
+https://citoapi.com/
+
+1. Create or sign in to a CitoAPI account.
+2. Open the CitoAPI dashboard.
+3. Generate an API key.
+4. Copy the API key into the local `.env` file.
+
+The API key must never be committed to GitHub or shared publicly.
+
+## Environment variables
+
+Create a file named `.env` in the root directory of the project:
+
+```env
+CITO_API_KEY=cito_live_INSERT_YOUR_KEY_HERE
+```
 ## Environment variables
 
 Create a file named `.env` in the root directory of the project:
