@@ -37,7 +37,7 @@ The API key must never be committed to GitHub or shared publicly.
 Create a file named `.env` in the root directory of the project:
 
 ```env
-CITO_API_KEY=cito_live_INSERT_YOUR_KEY_HERE
+CITO_API_KEY=cito_INSERT_YOUR_KEY_HERE
 ```
 ## Environment variables
 
