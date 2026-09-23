@@ -1,0 +1,27 @@
+1. Kig database igenne, ændre ting som f.esk: 
+    - Ændre navne (match_participants er ikke godt navn) - player_played_in_this_game - sometihng 
+    - På rows som f.esk " player_champion_stats" har vi "fetched_at" - slet 
+    - kig database rows igennem og se hvad vi ikke skal bruge 
+
+
+2. Læs op på normal former : vores database skal følge dem - lige nu har vi bruger med win rate (ifølge chatgpt)
+
+Chat siger : 
+    "Grunden er statistik-tabellerne. De gemmer både wins, games_played og win_rate. Hvis win_rate altid er wins / games_played, gemmer I den samme oplysning på to måder. Værdierne kan komme til at modsige hinanden.
+For at kunne sige klart “vores model er i 3NF”, kan I fjerne win_rate fra player_stats og player_champion_stats og beregne den, når I viser statistik:
+wins / NULLIF(games_played, 0)
+Resten af den lille model ser ud til at følge 3NF ud fra de regler, vi har beskrevet. I behøver ikke lave tre forskellige databaser eller gennemføre tre separate trin i SQL: 3NF bygger oven på 2NF, som bygger oven på 1NF.
+Jeg var for uklar før, da jeg skrev, at modellen “overvejende” var i 3NF. Det præcise svar på jeres nuværende script er: ja til 1NF og 2NF; 3NF kræver, at I tager stilling til de afledte statistikfelter." 
+
+
+3. Lav nogle test queries så vi kan se alt virker, opgavebeskrivelse: 
+    " Make sure your design is working – primary and foreign keys, data types, constraints,
+    referential integrity checks......." - tænker det er queries han mener 
+
+
+4. Find ud af hvilke af disse ting vi skal bruge, opgavebeskrivelse: 
+    Implement stored objects (meaningful – not just for the sake of having them):
+        o stored procedures, stored functions
+        o indexes for faster querying
+        o views
+        o triggers, events
