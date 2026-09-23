@@ -1,0 +1,138 @@
+:root {
+    color-scheme: dark;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #f5f7ff;
+    background: #080b16;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background:
+        radial-gradient(circle at top left, rgba(35, 103, 184, 0.35), transparent 38rem),
+        #080b16;
+}
+
+.page {
+    width: min(900px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 7rem 0 4rem;
+}
+
+.hero {
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    margin: 0 0 0.75rem;
+    color: #c89b3c;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 1;
+}
+
+.intro {
+    max-width: 38rem;
+    margin: 1.25rem 0 2.5rem;
+    color: #aab3ca;
+    font-size: 1.1rem;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+
+.search-row {
+    display: flex;
+    gap: 0.75rem;
+}
+
+input,
+button {
+    min-height: 3rem;
+    border: 1px solid #34405f;
+    border-radius: 0.6rem;
+    font: inherit;
+}
+
+input {
+    flex: 1;
+    padding: 0 1rem;
+    color: #f5f7ff;
+    background: #111728;
+}
+
+input:focus {
+    border-color: #4ea5e8;
+    outline: 3px solid rgba(78, 165, 232, 0.2);
+}
+
+button {
+    padding: 0 1.5rem;
+    color: #07111c;
+    background: #4ea5e8;
+    border-color: #4ea5e8;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #75baf0;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.result-card {
+    padding: 1.5rem;
+    border: 1px solid #222c45;
+    border-radius: 0.9rem;
+    background: rgba(17, 23, 40, 0.9);
+}
+
+.result-card h2 {
+    margin-top: 0;
+}
+
+#status {
+    color: #aab3ca;
+}
+
+#status.error {
+    color: #ff8796;
+}
+
+#result {
+    max-height: 30rem;
+    overflow: auto;
+    margin-bottom: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: #080b16;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+    .page {
+        padding-top: 4rem;
+    }
+
+    .search-row {
+        flex-direction: column;
+    }
+}

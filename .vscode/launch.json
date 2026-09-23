@@ -2,11 +2,11 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-DemoApplication<demo>",
+            "name": "Spring Boot-GameHubApplication<gamehub>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "mainClass": "com.gamehub.demo.DemoApplication",
-            "projectName": "demo",
+            "mainClass": "com.gamehub.GameHubApplication",
+            "projectName": "gamehub",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

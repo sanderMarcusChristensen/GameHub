@@ -1,13 +1,13 @@
-package com.gamehub.demo;
+package com.gamehub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class GameHubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(GameHubApplication.class, args);
 	}
 
 }
