@@ -1,4 +1,4 @@
-USE lol_esports_v2;
+USE gameHub;
 
 INSERT INTO teams (name, short_name)
 VALUES ('TEST Blue Team', 'TBLUE');

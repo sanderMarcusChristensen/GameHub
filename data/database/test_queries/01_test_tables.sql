@@ -1,4 +1,4 @@
-USE lol_esports_v2;
+USE gameHub;
 
 SHOW TABLES;
 

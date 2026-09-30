@@ -21,11 +21,11 @@
 --   - Game rows are created when their results are recorded.
 -- ============================================================
 
-CREATE DATABASE lol_esports
+CREATE DATABASE gameHub
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_0900_ai_ci;
 
-USE lol_esports_v2;
+USE gameHub;
 
 
 -- ============================================================

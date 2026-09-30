@@ -8,7 +8,8 @@ services:
       MYSQL_ROOT_PASSWORD: "123456"
     volumes:
       - gamehub_db_data:/var/lib/mysql
-      - ./data/database/init:/docker-entrypoint-initdb.d
+      - ./data/database/init_v7:/docker-entrypoint-initdb.d
 
 volumes:
   gamehub_db_data:
+ 
