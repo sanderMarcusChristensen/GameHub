@@ -1,0 +1,555 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="champion-roles-v7" name="Champions and roles">
+    <mxGraphModel dx="1240" dy="1000" grid="0" guides="1" page="1" pageScale="1" pageWidth="1240" pageHeight="1000" background="#ffffff">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="Champions and roles" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=29;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="40" y="20" width="1120" height="45" />
+        </mxCell>
+        <mxCell id="champions" value="" vertex="1" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=2;">
+          <mxGeometry as="geometry" x="40" y="100" width="530" height="204" />
+        </mxCell>
+        <mxCell id="championstitle" value="champions" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=24;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="108" width="514" height="36" />
+        </mxCell>
+        <mxCell id="championsh0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="152" />
+            <mxPoint as="targetPoint" x="570" y="152" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst0-0" value="Key" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="155" width="59" height="32" />
+        </mxCell>
+        <mxCell id="championsv0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="152" />
+            <mxPoint as="targetPoint" x="115" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst0-1" value="Column" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="155" width="224" height="32" />
+        </mxCell>
+        <mxCell id="championsv0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="152" />
+            <mxPoint as="targetPoint" x="355" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst0-2" value="Data type" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="155" width="199" height="32" />
+        </mxCell>
+        <mxCell id="championsh1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="190" />
+            <mxPoint as="targetPoint" x="570" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst1-0" value="PK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="193" width="59" height="32" />
+        </mxCell>
+        <mxCell id="championsv1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="190" />
+            <mxPoint as="targetPoint" x="115" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst1-1" value="id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="193" width="224" height="32" />
+        </mxCell>
+        <mxCell id="championsv1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="190" />
+            <mxPoint as="targetPoint" x="355" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst1-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="193" width="199" height="32" />
+        </mxCell>
+        <mxCell id="championsh2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="228" />
+            <mxPoint as="targetPoint" x="570" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst2-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="231" width="59" height="32" />
+        </mxCell>
+        <mxCell id="championsv2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="228" />
+            <mxPoint as="targetPoint" x="115" y="266" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst2-1" value="name" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="231" width="224" height="32" />
+        </mxCell>
+        <mxCell id="championsv2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="228" />
+            <mxPoint as="targetPoint" x="355" y="266" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst2-2" value="VARCHAR(100)" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="231" width="199" height="32" />
+        </mxCell>
+        <mxCell id="championsh3" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="266" />
+            <mxPoint as="targetPoint" x="570" y="266" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst3-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="269" width="59" height="32" />
+        </mxCell>
+        <mxCell id="championsv3-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="266" />
+            <mxPoint as="targetPoint" x="115" y="304" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst3-1" value="released_at" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="269" width="224" height="32" />
+        </mxCell>
+        <mxCell id="championsv3-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="266" />
+            <mxPoint as="targetPoint" x="355" y="304" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="championst3-2" value="DATE" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="269" width="199" height="32" />
+        </mxCell>
+        <mxCell id="champion_roles" value="" vertex="1" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=2;">
+          <mxGeometry as="geometry" x="670" y="100" width="530" height="166" />
+        </mxCell>
+        <mxCell id="champion_rolestitle" value="champion_roles" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=24;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="678" y="108" width="514" height="36" />
+        </mxCell>
+        <mxCell id="champion_rolesh0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="670" y="152" />
+            <mxPoint as="targetPoint" x="1200" y="152" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest0-0" value="Key" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="678" y="155" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="745" y="152" />
+            <mxPoint as="targetPoint" x="745" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest0-1" value="Column" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="753" y="155" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="985" y="152" />
+            <mxPoint as="targetPoint" x="985" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest0-2" value="Data type" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="993" y="155" width="199" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesh1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="670" y="190" />
+            <mxPoint as="targetPoint" x="1200" y="190" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest1-0" value="PK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="678" y="193" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="745" y="190" />
+            <mxPoint as="targetPoint" x="745" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest1-1" value="id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="753" y="193" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="985" y="190" />
+            <mxPoint as="targetPoint" x="985" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest1-2" value="INT" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="993" y="193" width="199" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesh2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="670" y="228" />
+            <mxPoint as="targetPoint" x="1200" y="228" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest2-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="678" y="231" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="745" y="228" />
+            <mxPoint as="targetPoint" x="745" y="266" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest2-1" value="name" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="753" y="231" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champion_rolesv2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="985" y="228" />
+            <mxPoint as="targetPoint" x="985" y="266" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion_rolest2-2" value="VARCHAR(45)" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="993" y="231" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_stats" value="" vertex="1" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=2;">
+          <mxGeometry as="geometry" x="40" y="520" width="530" height="356" />
+        </mxCell>
+        <mxCell id="player_game_statstitle" value="player_game_stats" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=24;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="528" width="514" height="36" />
+        </mxCell>
+        <mxCell id="player_game_statsh0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="572" />
+            <mxPoint as="targetPoint" x="570" y="572" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst0-0" value="Key" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="575" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="572" />
+            <mxPoint as="targetPoint" x="115" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst0-1" value="Column" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="575" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="572" />
+            <mxPoint as="targetPoint" x="355" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst0-2" value="Data type" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="575" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="610" />
+            <mxPoint as="targetPoint" x="570" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst1-0" value="PK, FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="613" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="610" />
+            <mxPoint as="targetPoint" x="115" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst1-1" value="game_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="613" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="610" />
+            <mxPoint as="targetPoint" x="355" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst1-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="613" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="648" />
+            <mxPoint as="targetPoint" x="570" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst2-0" value="PK, FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="651" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="648" />
+            <mxPoint as="targetPoint" x="115" y="686" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst2-1" value="player_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="651" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="648" />
+            <mxPoint as="targetPoint" x="355" y="686" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst2-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="651" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh3" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="686" />
+            <mxPoint as="targetPoint" x="570" y="686" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst3-0" value="FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="689" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv3-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="686" />
+            <mxPoint as="targetPoint" x="115" y="724" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst3-1" value="team_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="689" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv3-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="686" />
+            <mxPoint as="targetPoint" x="355" y="724" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst3-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="689" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh4" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="724" />
+            <mxPoint as="targetPoint" x="570" y="724" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst4-0" value="FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="727" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv4-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="724" />
+            <mxPoint as="targetPoint" x="115" y="762" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst4-1" value="champion_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="727" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv4-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="724" />
+            <mxPoint as="targetPoint" x="355" y="762" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst4-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="727" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh5" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="762" />
+            <mxPoint as="targetPoint" x="570" y="762" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst5-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="765" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv5-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="762" />
+            <mxPoint as="targetPoint" x="115" y="800" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst5-1" value="kills" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="765" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv5-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="762" />
+            <mxPoint as="targetPoint" x="355" y="800" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst5-2" value="INT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="765" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh6" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="800" />
+            <mxPoint as="targetPoint" x="570" y="800" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst6-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="803" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv6-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="800" />
+            <mxPoint as="targetPoint" x="115" y="838" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst6-1" value="deaths" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="803" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv6-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="800" />
+            <mxPoint as="targetPoint" x="355" y="838" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst6-2" value="INT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="803" width="199" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsh7" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="40" y="838" />
+            <mxPoint as="targetPoint" x="570" y="838" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst7-0" value="" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="48" y="841" width="59" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv7-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="115" y="838" />
+            <mxPoint as="targetPoint" x="115" y="876" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst7-1" value="assists" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="123" y="841" width="224" height="32" />
+        </mxCell>
+        <mxCell id="player_game_statsv7-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="355" y="838" />
+            <mxPoint as="targetPoint" x="355" y="876" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="player_game_statst7-2" value="INT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="363" y="841" width="199" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_roles" value="" vertex="1" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#64748b;strokeWidth=2;">
+          <mxGeometry as="geometry" x="650" y="520" width="550" height="166" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolestitle" value="champions_has_champion_roles" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=24;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="658" y="528" width="534" height="36" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesh0" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="650" y="572" />
+            <mxPoint as="targetPoint" x="1200" y="572" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest0-0" value="Key" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="658" y="575" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv0-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="725" y="572" />
+            <mxPoint as="targetPoint" x="725" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest0-1" value="Column" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="733" y="575" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv0-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="965" y="572" />
+            <mxPoint as="targetPoint" x="965" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest0-2" value="Data type" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="973" y="575" width="219" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesh1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="650" y="610" />
+            <mxPoint as="targetPoint" x="1200" y="610" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest1-0" value="PK, FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="658" y="613" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv1-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="725" y="610" />
+            <mxPoint as="targetPoint" x="725" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest1-1" value="champions_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="733" y="613" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv1-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="965" y="610" />
+            <mxPoint as="targetPoint" x="965" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest1-2" value="BIGINT UNSIGNED" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="973" y="613" width="219" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesh2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="650" y="648" />
+            <mxPoint as="targetPoint" x="1200" y="648" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest2-0" value="PK, FK" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="658" y="651" width="59" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv2-1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="725" y="648" />
+            <mxPoint as="targetPoint" x="725" y="686" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest2-1" value="champion_roles_id" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="733" y="651" width="224" height="32" />
+        </mxCell>
+        <mxCell id="champions_has_champion_rolesv2-2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=none;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="965" y="648" />
+            <mxPoint as="targetPoint" x="965" y="686" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champions_has_champion_rolest2-2" value="INT" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#0f172a;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="973" y="651" width="219" height="32" />
+        </mxCell>
+        <mxCell id="champion-stats" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;startArrow=ERmandOne;startSize=16;endArrow=ERzeroToMany;endSize=18;dashed=1;dashPattern=6 5;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="180" y="304" />
+            <mxPoint as="targetPoint" x="180" y="520" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion-roles-link" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;startArrow=ERmandOne;startSize=16;endArrow=ERzeroToMany;endSize=18;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="450" y="304" />
+            <mxPoint as="targetPoint" x="790" y="520" />
+            <Array as="points">
+              <mxPoint x="450" y="420" />
+              <mxPoint x="790" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="role-champions-link" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;startArrow=ERmandOne;startSize=16;endArrow=ERzeroToMany;endSize=18;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="sourcePoint" x="1030" y="266" />
+            <mxPoint as="targetPoint" x="1030" y="520" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="stats-label" value="Champion used&#10;in a game" vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="205" y="370" width="210" height="60" />
+        </mxCell>
+        <mxCell id="link-note" value="Each champion-role pair can occur only once.&#10;Roles describe the champion in general,&#10;not the role played in a specific game." vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="650" y="735" width="550" height="100" />
+        </mxCell>
+        <mxCell id="note" value="All columns are shown. Only relationships between these four tables are drawn.&#10;Constraints and defaults are omitted. PK = primary key; FK = foreign key." vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=17;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;">
+          <mxGeometry as="geometry" x="40" y="925" width="1160" height="55" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

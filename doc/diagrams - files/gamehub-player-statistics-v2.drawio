@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net">
+  <diagram name="Player statistics" id="stats-v2">
+    <mxGraphModel grid="0" page="1" pageWidth="2760" pageHeight="1320" pageScale="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="players" value="" vertex="1" parent="1" style="group;">
+          <mxGeometry as="geometry" x="40" y="100" width="820" height="268" />
+        </mxCell>
+        <mxCell id="players-title" value="players" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;fontSize=27;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="0" width="820" height="60" />
+        </mxCell>
+        <mxCell id="players-0-0" value="Key" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="60" width="90" height="52" />
+        </mxCell>
+        <mxCell id="players-0-1" value="Column" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="90" y="60" width="190" height="52" />
+        </mxCell>
+        <mxCell id="players-0-2" value="Data type" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="280" y="60" width="240" height="52" />
+        </mxCell>
+        <mxCell id="players-0-3" value="Constraints / default" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="520" y="60" width="300" height="52" />
+        </mxCell>
+        <mxCell id="players-1-0" value="PK" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="112" width="90" height="52" />
+        </mxCell>
+        <mxCell id="players-1-1" value="id" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="112" width="190" height="52" />
+        </mxCell>
+        <mxCell id="players-1-2" value="BIGINT UNSIGNED" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="112" width="240" height="52" />
+        </mxCell>
+        <mxCell id="players-1-3" value="NOT NULL; AUTO_INCREMENT" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="112" width="300" height="52" />
+        </mxCell>
+        <mxCell id="players-2-0" value="" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="164" width="90" height="52" />
+        </mxCell>
+        <mxCell id="players-2-1" value="nickname" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="164" width="190" height="52" />
+        </mxCell>
+        <mxCell id="players-2-2" value="VARCHAR(100)" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="164" width="240" height="52" />
+        </mxCell>
+        <mxCell id="players-2-3" value="NOT NULL" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="164" width="300" height="52" />
+        </mxCell>
+        <mxCell id="players-3-0" value="" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="216" width="90" height="52" />
+        </mxCell>
+        <mxCell id="players-3-1" value="created_at" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="216" width="190" height="52" />
+        </mxCell>
+        <mxCell id="players-3-2" value="TIMESTAMP" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="216" width="240" height="52" />
+        </mxCell>
+        <mxCell id="players-3-3" value="NOT NULL&#10;DEFAULT CURRENT_TIMESTAMP" vertex="1" parent="players" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="216" width="300" height="52" />
+        </mxCell>
+        <mxCell id="teams" value="" vertex="1" parent="1" style="group;">
+          <mxGeometry as="geometry" x="40" y="690" width="820" height="320" />
+        </mxCell>
+        <mxCell id="teams-title" value="teams" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;fontSize=27;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="0" width="820" height="60" />
+        </mxCell>
+        <mxCell id="teams-0-0" value="Key" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="60" width="90" height="52" />
+        </mxCell>
+        <mxCell id="teams-0-1" value="Column" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="90" y="60" width="190" height="52" />
+        </mxCell>
+        <mxCell id="teams-0-2" value="Data type" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="280" y="60" width="240" height="52" />
+        </mxCell>
+        <mxCell id="teams-0-3" value="Constraints / default" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="520" y="60" width="300" height="52" />
+        </mxCell>
+        <mxCell id="teams-1-0" value="PK" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="112" width="90" height="52" />
+        </mxCell>
+        <mxCell id="teams-1-1" value="id" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="112" width="190" height="52" />
+        </mxCell>
+        <mxCell id="teams-1-2" value="BIGINT UNSIGNED" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="112" width="240" height="52" />
+        </mxCell>
+        <mxCell id="teams-1-3" value="NOT NULL; AUTO_INCREMENT" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="112" width="300" height="52" />
+        </mxCell>
+        <mxCell id="teams-2-0" value="" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="164" width="90" height="52" />
+        </mxCell>
+        <mxCell id="teams-2-1" value="name" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="164" width="190" height="52" />
+        </mxCell>
+        <mxCell id="teams-2-2" value="VARCHAR(100)" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="164" width="240" height="52" />
+        </mxCell>
+        <mxCell id="teams-2-3" value="NOT NULL" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="164" width="300" height="52" />
+        </mxCell>
+        <mxCell id="teams-3-0" value="" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="216" width="90" height="52" />
+        </mxCell>
+        <mxCell id="teams-3-1" value="short_name" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="216" width="190" height="52" />
+        </mxCell>
+        <mxCell id="teams-3-2" value="VARCHAR(20)" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="216" width="240" height="52" />
+        </mxCell>
+        <mxCell id="teams-3-3" value="NULL allowed" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="216" width="300" height="52" />
+        </mxCell>
+        <mxCell id="teams-4-0" value="" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="268" width="90" height="52" />
+        </mxCell>
+        <mxCell id="teams-4-1" value="created_at" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="268" width="190" height="52" />
+        </mxCell>
+        <mxCell id="teams-4-2" value="TIMESTAMP" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="268" width="240" height="52" />
+        </mxCell>
+        <mxCell id="teams-4-3" value="NOT NULL&#10;DEFAULT CURRENT_TIMESTAMP" vertex="1" parent="teams" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="268" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats" value="" vertex="1" parent="1" style="group;">
+          <mxGeometry as="geometry" x="970" y="370" width="820" height="476" />
+        </mxCell>
+        <mxCell id="player_game_stats-title" value="player_game_stats" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;fontSize=27;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="0" width="820" height="60" />
+        </mxCell>
+        <mxCell id="player_game_stats-0-0" value="Key" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="60" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-0-1" value="Column" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="90" y="60" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-0-2" value="Data type" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="280" y="60" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-0-3" value="Constraints / default" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="520" y="60" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-1-0" value="PK, FK" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="112" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-1-1" value="game_id" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="112" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-1-2" value="BIGINT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="112" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-1-3" value="NOT NULL" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="112" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-2-0" value="PK, FK" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="164" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-2-1" value="player_id" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="164" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-2-2" value="BIGINT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="164" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-2-3" value="NOT NULL" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="164" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-3-0" value="FK" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="216" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-3-1" value="team_id" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="216" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-3-2" value="BIGINT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="216" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-3-3" value="NOT NULL" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="216" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-4-0" value="FK" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="268" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-4-1" value="champion_id" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="268" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-4-2" value="BIGINT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="268" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-4-3" value="NOT NULL" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="268" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-5-0" value="" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="320" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-5-1" value="kills" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="320" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-5-2" value="INT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="320" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-5-3" value="NOT NULL; DEFAULT 0" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="320" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-6-0" value="" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="372" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-6-1" value="deaths" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="372" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-6-2" value="INT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="372" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-6-3" value="NOT NULL; DEFAULT 0" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="372" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-7-0" value="" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="424" width="90" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-7-1" value="assists" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="424" width="190" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-7-2" value="INT UNSIGNED" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="424" width="240" height="52" />
+        </mxCell>
+        <mxCell id="player_game_stats-7-3" value="NOT NULL; DEFAULT 0" vertex="1" parent="player_game_stats" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="424" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games" value="" vertex="1" parent="1" style="group;">
+          <mxGeometry as="geometry" x="1900" y="70" width="820" height="476" />
+        </mxCell>
+        <mxCell id="games-title" value="games" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;fontSize=27;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="0" width="820" height="60" />
+        </mxCell>
+        <mxCell id="games-0-0" value="Key" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="60" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-0-1" value="Column" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="90" y="60" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-0-2" value="Data type" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="280" y="60" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-0-3" value="Constraints / default" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="520" y="60" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-1-0" value="PK" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="112" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-1-1" value="id" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="112" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-1-2" value="BIGINT UNSIGNED" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="112" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-1-3" value="NOT NULL; AUTO_INCREMENT" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="112" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-2-0" value="FK" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="164" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-2-1" value="match_id" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="164" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-2-2" value="BIGINT UNSIGNED" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="164" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-2-3" value="NOT NULL" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="164" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-3-0" value="" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="216" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-3-1" value="game_number" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="216" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-3-2" value="INT UNSIGNED" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="216" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-3-3" value="NOT NULL; CHECK &gt; 0" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="216" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-4-0" value="FK" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="268" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-4-1" value="winner_team_id" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="268" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-4-2" value="BIGINT UNSIGNED" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="268" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-4-3" value="NULL allowed" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="268" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-5-0" value="" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="320" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-5-1" value="started_at" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="320" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-5-2" value="DATETIME" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="320" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-5-3" value="NULL allowed" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="320" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-6-0" value="" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="372" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-6-1" value="ended_at" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="372" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-6-2" value="DATETIME" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="372" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-6-3" value="NULL allowed" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="372" width="300" height="52" />
+        </mxCell>
+        <mxCell id="games-7-0" value="" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="424" width="90" height="52" />
+        </mxCell>
+        <mxCell id="games-7-1" value="created_at" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="424" width="190" height="52" />
+        </mxCell>
+        <mxCell id="games-7-2" value="TIMESTAMP" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="424" width="240" height="52" />
+        </mxCell>
+        <mxCell id="games-7-3" value="NOT NULL&#10;DEFAULT CURRENT_TIMESTAMP" vertex="1" parent="games" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="424" width="300" height="52" />
+        </mxCell>
+        <mxCell id="champions" value="" vertex="1" parent="1" style="group;">
+          <mxGeometry as="geometry" x="1900" y="850" width="820" height="268" />
+        </mxCell>
+        <mxCell id="champions-title" value="champions" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;fontSize=27;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="0" width="820" height="60" />
+        </mxCell>
+        <mxCell id="champions-0-0" value="Key" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="0" y="60" width="90" height="52" />
+        </mxCell>
+        <mxCell id="champions-0-1" value="Column" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="90" y="60" width="190" height="52" />
+        </mxCell>
+        <mxCell id="champions-0-2" value="Data type" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="280" y="60" width="240" height="52" />
+        </mxCell>
+        <mxCell id="champions-0-3" value="Constraints / default" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;fontStyle=1;">
+          <mxGeometry as="geometry" x="520" y="60" width="300" height="52" />
+        </mxCell>
+        <mxCell id="champions-1-0" value="PK" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="112" width="90" height="52" />
+        </mxCell>
+        <mxCell id="champions-1-1" value="id" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="112" width="190" height="52" />
+        </mxCell>
+        <mxCell id="champions-1-2" value="BIGINT UNSIGNED" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="112" width="240" height="52" />
+        </mxCell>
+        <mxCell id="champions-1-3" value="NOT NULL; AUTO_INCREMENT" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="112" width="300" height="52" />
+        </mxCell>
+        <mxCell id="champions-2-0" value="" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="164" width="90" height="52" />
+        </mxCell>
+        <mxCell id="champions-2-1" value="name" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="164" width="190" height="52" />
+        </mxCell>
+        <mxCell id="champions-2-2" value="VARCHAR(100)" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="164" width="240" height="52" />
+        </mxCell>
+        <mxCell id="champions-2-3" value="NOT NULL" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="164" width="300" height="52" />
+        </mxCell>
+        <mxCell id="champions-3-0" value="" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="0" y="216" width="90" height="52" />
+        </mxCell>
+        <mxCell id="champions-3-1" value="released_at" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="90" y="216" width="190" height="52" />
+        </mxCell>
+        <mxCell id="champions-3-2" value="DATE" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="280" y="216" width="240" height="52" />
+        </mxCell>
+        <mxCell id="champions-3-3" value="NOT NULL" vertex="1" parent="champions" style="html=0;whiteSpace=wrap;rounded=0;fillColor=#ffffff;strokeColor=#222222;fontFamily=Arial;fontSize=20;align=left;spacingLeft=10;">
+          <mxGeometry as="geometry" x="520" y="216" width="300" height="52" />
+        </mxCell>
+        <mxCell id="player" edge="1" parent="1" source="players" target="player_game_stats" style="edgeStyle=none;rounded=0;html=0;strokeWidth=2;strokeColor=#222222;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=16;endSize=18;exitX=1;exitY=0.5149253731343284;exitPerimeter=0;entryX=0;entryY=0.39915966386554624;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="905" y="238" />
+              <mxPoint x="905" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="team" edge="1" parent="1" source="teams" target="player_game_stats" style="edgeStyle=none;rounded=0;html=0;strokeWidth=2;strokeColor=#222222;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=16;endSize=18;exitX=1;exitY=0.43125;exitPerimeter=0;entryX=0;entryY=0.5084033613445378;entryPerimeter=0;dashed=1;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="940" y="828" />
+              <mxPoint x="940" y="612" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="game" edge="1" parent="1" source="games" target="player_game_stats" style="edgeStyle=none;rounded=0;html=0;strokeWidth=2;strokeColor=#222222;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=16;endSize=18;exitX=0;exitY=0.28991596638655465;exitPerimeter=0;entryX=1;entryY=0.28991596638655465;entryPerimeter=0;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1830" y="208" />
+              <mxPoint x="1830" y="508" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="champion" edge="1" parent="1" source="champions" target="player_game_stats" style="edgeStyle=none;rounded=0;html=0;strokeWidth=2;strokeColor=#222222;startArrow=ERmandOne;endArrow=ERzeroToMany;startSize=16;endSize=18;exitX=0;exitY=0.5149253731343284;exitPerimeter=0;entryX=1;entryY=0.6176470588235294;entryPerimeter=0;dashed=1;">
+          <mxGeometry as="geometry" relative="1">
+            <Array as="points">
+              <mxPoint x="1865" y="988" />
+              <mxPoint x="1865" y="664" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="notes" value="PK = primary key    FK = foreign key&#10;Composite primary key: (game_id, player_id). Each statistics record refers to exactly one player, game, team and champion.&#10;Only the four relationships to player_game_stats are shown. Other relationships and table-level constraints are omitted." vertex="1" parent="1" style="text;html=0;whiteSpace=wrap;align=center;fontFamily=Arial;fontSize=22;">
+          <mxGeometry as="geometry" x="190" y="1170" width="2380" height="100" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
