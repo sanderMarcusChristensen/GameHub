@@ -1,10 +1,10 @@
-USE lol_esports;
+USE gameHub;
 
 -- A simple leaderboard for the application to read.
 CREATE OR REPLACE VIEW vw_player_leaderboard AS
 SELECT
     p.id AS player_id,
-    p.ign,
+    p.nickname,
     ps.games_played,
     ps.wins,
     ps.losses,

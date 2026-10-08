@@ -1,4 +1,4 @@
-USE lol_esports;
+USE gameHub;
 
 -- Stores the latest aggregate statistics for every player.
 CREATE TABLE player_statistics (

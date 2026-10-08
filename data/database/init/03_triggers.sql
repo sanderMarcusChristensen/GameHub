@@ -1,4 +1,4 @@
-USE lol_esports;
+USE gameHub;
 
 -- Keeps an audit trail when a match moves between lifecycle states.
 -- The trigger runs for every SQL client, including the future Java application.
