@@ -21,11 +21,11 @@
 --   - Game rows are created when their results are recorded.
 -- ============================================================
 
-CREATE DATABASE lol_esports
+CREATE DATABASE gameHub
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_0900_ai_ci;
 
-USE lol_esports_v2;
+USE gameHub;
 
 
 -- ============================================================
@@ -37,7 +37,9 @@ CREATE TABLE players (
     nickname VARCHAR(100) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+
+    UNIQUE KEY uq_player_nickname (nickname)
 ) ENGINE = InnoDB;
 
 
@@ -47,7 +49,9 @@ CREATE TABLE teams (
     short_name VARCHAR(20) NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+
+    UNIQUE KEY uq_team_name (name)
 ) ENGINE = InnoDB;
 
 
@@ -59,6 +63,9 @@ CREATE TABLE team_players (
 
     -- A player can return to the same team at a later date.
     PRIMARY KEY (team_id, player_id, joined_at),
+
+    -- Useful for retrieving a player's membership history.
+    INDEX idx_team_players_player_joined (player_id, joined_at),
 
     CONSTRAINT fk_team_players_team
         FOREIGN KEY (team_id) REFERENCES teams (id),
@@ -78,7 +85,9 @@ CREATE TABLE champions (
     -- Enter the actual release date.
     released_at DATE NOT NULL,
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+
+    UNIQUE KEY uq_champion_name (name)
 ) ENGINE = InnoDB;
 
 
@@ -160,6 +169,13 @@ CREATE TABLE matches (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     PRIMARY KEY (id),
+
+    -- Useful for tournament queries filtering by status.
+    INDEX idx_matches_tournament_status (tournament_id, status),
+
+    -- Useful for finding matches involving a team.
+    INDEX idx_matches_team_a (team_a_id),
+    INDEX idx_matches_team_b (team_b_id),
 
     CONSTRAINT fk_matches_tournament
         FOREIGN KEY (tournament_id) REFERENCES tournaments (id),
@@ -255,6 +271,15 @@ CREATE TABLE player_game_stats (
     assists INT UNSIGNED NOT NULL DEFAULT 0,
 
     PRIMARY KEY (game_id, player_id),
+
+    -- Useful for player statistics queries.
+    INDEX idx_stats_player (player_id),
+
+    -- Useful for team statistics queries.
+    INDEX idx_stats_team (team_id),
+
+    -- Useful for champion-specific statistics queries.
+    INDEX idx_stats_champion (champion_id),
 
     CONSTRAINT fk_stats_game
         FOREIGN KEY (game_id) REFERENCES games (id),
