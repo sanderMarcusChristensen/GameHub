@@ -1,4 +1,4 @@
-package com.gamehub.document;
+package com.gamehub.entity.document;
 
 import java.time.LocalDate;
 import java.util.List;
