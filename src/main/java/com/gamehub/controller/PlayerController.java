@@ -20,10 +20,9 @@ public class PlayerController {
 
     @GetMapping("/api/players")
     public Player findByNickname(@RequestParam String nickname) {
-        try {
-            return playerRepository.findByNickname(nickname).orElseThrow();
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        }
+        return playerRepository.findByNickname(nickname)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Player not found"
+                ));
     }
 }

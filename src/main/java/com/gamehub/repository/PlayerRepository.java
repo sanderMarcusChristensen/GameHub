@@ -9,7 +9,7 @@ import java.util.Optional;
 @Repository
 public class PlayerRepository {
 
-    private final String DATABASE_URL = "jdbc:mysql://localhost:3306/gameHub";
+    private final String DATABASE_URL = "jdbc:mysql://localhost:3306/gameHub?allowMultiQueries=true";
     private final String DATABASE_USER = "root";
     private final String DATABASE_PASSWORD = "123456";
 
