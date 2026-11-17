@@ -37,7 +37,7 @@ The API key must never be committed to GitHub or shared publicly.
 Open the `GameHub` directory as your editor workspace. It contains `pom.xml`.
 Install JDK 21 and use the included Maven wrapper; a separate Maven install is not required.
 
-Copy `.env.example` to `.env` in this directory and fill in your API keys:
+Copy `.env.example` to `.env` in this directory and fill in your API keys and local MySQL password:
 
 ```sh
 cp .env.example .env
@@ -48,7 +48,9 @@ On Windows, use `mvnw.cmd` instead of `./mvnw`.
 Spring Boot loads the root `.env` as a properties file. Use plain `KEY=value` lines
 without quotes or `export`. Environment variables can also supply the keys.
 The current Cito endpoint requires `CITO_API_KEY`; the Riot key is for future integration.
-`.env` is ignored by Git.
+Set `DB_PASSWORD` to the password for the local MySQL account in `DB_USERNAME`.
+The datasource defaults to `gameHub` on `127.0.0.1:3306`; Hibernate validates the
+existing tables and does not create or modify them. `.env` is ignored by Git.
 
 Run tests with:
 
