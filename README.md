@@ -60,6 +60,31 @@ Run tests with:
 
 The context test uses a dummy Cito key and does not call the external API.
 
+## Using account authentication
+
+With GameHub running, use PowerShell (change the port if needed). Registration
+requires a unique email and a password of at least 8 characters. It creates a
+`USER` account.
+
+```powershell
+$baseUrl = "http://localhost:8080"
+$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+$postApi = {
+    param($path, $body)
+    $csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
+    Invoke-RestMethod "$baseUrl$path" -Method Post -WebSession $session `
+        -Headers @{ "X-CSRF-TOKEN" = $csrf.token } `
+        -ContentType "application/json" -Body $body
+}
+$credentials = @{ email = "you@example.com"; password = "choose-a-password" } | ConvertTo-Json
+& $postApi "/api/auth/register" $credentials
+& $postApi "/api/auth/login" $credentials
+Invoke-RestMethod "$baseUrl/api/auth/me" -WebSession $session
+& $postApi "/api/auth/logout" "{}"
+```
+
+Registration only creates `USER` accounts. Admin roles must be assigned separately.
+
 ## Project layout
 
 ```text
