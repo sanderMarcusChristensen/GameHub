@@ -1,15 +1,18 @@
 package com.gamehub.service;
 
 import com.gamehub.dto.PlayerDto;
+import com.gamehub.dto.PlayerFilterDto;
 import com.gamehub.entity.Player;
 import com.gamehub.exception.ResourceConflictException;
 import com.gamehub.exception.ResourceNotFoundException;
 import com.gamehub.mapper.PlayerMapper;
 import com.gamehub.repository.PlayerRepository;
+import com.gamehub.specification.PlayerSpecification;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -29,20 +32,20 @@ public class PlayerService {
         return playerMapper.toDto(savedPlayer);
     }
 
-    public PlayerDto getByNickname(String nickname) {
-        return playerRepository.findByNickname(nickname)
-                .map(playerMapper::toDto)
-                .orElseThrow(() -> new ResourceNotFoundException("Player with nickname '" + nickname + "' not found."));
-    }
-
     public PlayerDto getById(Long id) {
         return playerMapper.toDto(findById(id));
     }
 
-    public List<PlayerDto> getAll() {
-        return playerRepository.findAll()
-                .stream().map(playerMapper::toDto)
-                .toList();
+    public Page<PlayerDto> getAll(PlayerFilterDto filter, Pageable pageable
+    ) {
+        Specification<Player> spec = Specification.unrestricted();
+
+        if (filter.nickname() != null && !filter.nickname().isBlank()) {
+            spec = spec.and(PlayerSpecification.nicknameContains(filter.nickname()));
+        }
+
+        return playerRepository.findAll(spec, pageable)
+                .map(playerMapper::toDto);
     }
 
     public PlayerDto update(Long id, PlayerDto dto) {
