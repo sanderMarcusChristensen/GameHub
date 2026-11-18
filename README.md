@@ -37,7 +37,7 @@ The API key must never be committed to GitHub or shared publicly.
 Open the `GameHub` directory as your editor workspace. It contains `pom.xml`.
 Install JDK 21 and use the included Maven wrapper; a separate Maven install is not required.
 
-Copy `.env.example` to `.env` in this directory and fill in your API keys:
+Copy `.env.example` to `.env` in this directory and fill in your API keys and local MySQL password:
 
 ```sh
 cp .env.example .env
@@ -48,7 +48,9 @@ On Windows, use `mvnw.cmd` instead of `./mvnw`.
 Spring Boot loads the root `.env` as a properties file. Use plain `KEY=value` lines
 without quotes or `export`. Environment variables can also supply the keys.
 The current Cito endpoint requires `CITO_API_KEY`; the Riot key is for future integration.
-`.env` is ignored by Git.
+Set `DB_PASSWORD` to the password for the local MySQL account in `DB_USERNAME`.
+The datasource defaults to `gameHub` on `127.0.0.1:3306`; Hibernate validates the
+existing tables and does not create or modify them. `.env` is ignored by Git.
 
 Run tests with:
 
@@ -57,6 +59,31 @@ Run tests with:
 ```
 
 The context test uses a dummy Cito key and does not call the external API.
+
+## Using account authentication
+
+With GameHub running, use PowerShell (change the port if needed). Registration
+requires a unique email and a password of at least 8 characters. It creates a
+`USER` account.
+
+```powershell
+$baseUrl = "http://localhost:8080"
+$session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
+$postApi = {
+    param($path, $body)
+    $csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
+    Invoke-RestMethod "$baseUrl$path" -Method Post -WebSession $session `
+        -Headers @{ "X-CSRF-TOKEN" = $csrf.token } `
+        -ContentType "application/json" -Body $body
+}
+$credentials = @{ email = "you@example.com"; password = "choose-a-password" } | ConvertTo-Json
+& $postApi "/api/auth/register" $credentials
+& $postApi "/api/auth/login" $credentials
+Invoke-RestMethod "$baseUrl/api/auth/me" -WebSession $session
+& $postApi "/api/auth/logout" "{}"
+```
+
+Registration only creates `USER` accounts. Admin roles must be assigned separately.
 
 ## Project layout
 

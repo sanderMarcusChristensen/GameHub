@@ -32,6 +32,19 @@ USE gameHub;
 -- 1. TABLES
 -- ============================================================
 
+CREATE TABLE app_users (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    email VARCHAR(254) NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('USER', 'ADMIN') NOT NULL DEFAULT 'USER',
+    is_enabled BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_app_users_email (email)
+) ENGINE = InnoDB;
+
+
 CREATE TABLE players (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     nickname VARCHAR(100) NOT NULL,
