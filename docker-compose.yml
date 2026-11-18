@@ -1,14 +1,39 @@
+
 services:
   gamehub_db:
     image: mysql:9.5.0
     container_name: gamehub_db
     ports:
-      - "3306:3306"
+      - "3307:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
     volumes:
       - gamehub_db_data:/var/lib/mysql
       - ./data/database/init:/docker-entrypoint-initdb.d
 
+  mongodb:
+    image: mongo:8.0
+    container_name: gamehub_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+      - mongo_db_data_v2:/data/db
+
+  neo4j:
+    image: neo4j:2026.10.2
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-gamehub-local-demo}
+    volumes:
+      - gamehub_neo4j_data:/data
+
 volumes:
   gamehub_db_data:
+  mongo_db_data_v2:
+  gamehub_neo4j_data:
