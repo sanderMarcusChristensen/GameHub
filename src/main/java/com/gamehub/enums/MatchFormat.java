@@ -1,4 +1,4 @@
-package com.gamehub.entity;
+package com.gamehub.enums;
 
 public enum MatchFormat {
     BO1,

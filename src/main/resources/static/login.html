@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in | GameHub</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main class="page auth-page">
+    <a class="back-link" href="/">← Back to GameHub</a>
+    <section class="auth-card" aria-labelledby="auth-heading">
+        <div id="auth-signed-out">
+            <h2 id="auth-heading">Sign in</h2>
+            <form id="auth-form">
+                <label for="auth-email">Email</label>
+                <input id="auth-email" type="email" autocomplete="email" maxlength="254" required>
+                <label for="auth-password">Password</label>
+                <input id="auth-password" type="password" autocomplete="current-password" maxlength="72" required>
+                <div class="auth-actions">
+                    <button type="submit">Sign in</button>
+                    <button type="button" id="register-button" class="secondary-button">Create account</button>
+                </div>
+            </form>
+        </div>
+        <div id="auth-signed-in" hidden>
+            <p>Signed in as <strong id="auth-user"></strong></p>
+            <button type="button" id="logout-button" class="secondary-button">Sign out</button>
+        </div>
+        <p id="auth-status" role="status" aria-live="polite"></p>
+    </section>
+</main>
+<script src="/js/auth.js"></script>
+</body>
+</html>
