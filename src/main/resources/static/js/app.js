@@ -24,7 +24,7 @@ form.addEventListener("submit", async (event) => {
             throw new Error(body || `Request failed with status ${response.status}`);
         }
 
-        result.textContent = formatResponse(body);
+        renderPlayer(playerName, JSON.parse(body));
         result.hidden = false;
         statusMessage.textContent = `Stats loaded for ${playerName}.`;
         statusMessage.classList.remove("error");
@@ -37,11 +37,37 @@ form.addEventListener("submit", async (event) => {
     }
 });
 
-function formatResponse(body) {
-    try {
-        return JSON.stringify(JSON.parse(body), null, 2);
-    } catch {
-        return body;
+function renderPlayer(name, stats) {
+    if (!Number.isFinite(stats?.gamesPlayed)) throw new Error("Missing player record.");
+    const number = (value, digits = 0) => Number.isFinite(value)
+        ? value.toLocaleString("en-US", { maximumFractionDigits: digits }) : "—";
+    const percent = value => Number.isFinite(value) ? number(value * 100, 1) + "%" : "—";
+    const show = (id, value) => document.getElementById(id).textContent = value;
+    show("handle", name);
+    show("games", number(stats.gamesPlayed) + " games");
+    show("rate", percent(stats.winRate));
+    show("record", number(stats.wins) + " wins · " + number(stats.losses) + " losses");
+    show("kda", number(stats.avgKda, 2));
+    show("kills", [stats.avgKills, stats.avgDeaths, stats.avgAssists].map(v => number(v, 2)).join(" / ") + " K / D / A");
+    const arc = document.getElementById("arc");
+    arc.style.strokeDashoffset = 100 - 100 * (stats.winRate ?? 0);
+    const coverage = Number.isFinite(stats.coverage?.detailedStatsGames)
+        ? "Based on " + number(stats.coverage.detailedStatsGames) + " detailed games." : "";
+    const tiles = [
+        ["Farm", "m4 16 12-12 4 4L8 20z M6 12l6 6", number(stats.avgCsPerMin, 2) + " CS/min",
+            number(stats.avgCs, 1) + " CS per game. " + coverage.replace("Based on", "CS/min based on")],
+        ["Combat", "m13 2-9 12h7l-1 8 10-14h-8z", number(stats.avgDamagePerMin) + " damage/min",
+            percent(stats.killParticipation) + " kill participation. " + coverage],
+        ["Vision", "M2 12Q12-2 22 12Q12 26 2 12Z M15 12a3 3 0 1 1-6 0 3 3 0 1 1 6 0", number(stats.avgVisionScore, 1) + " vision score",
+            "Average vision score per detailed game. " + coverage]
+    ];
+    const metrics = document.getElementById("metrics");
+    metrics.replaceChildren();
+    for (const [label, path, value, description] of tiles) {
+        const tile = document.createElement("details");
+        tile.innerHTML = `<summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${path}"/></svg> ${label}<b>${value}</b></summary><p></p>`;
+        tile.querySelector("p").textContent = description;
+        metrics.append(tile);
     }
 }
 
