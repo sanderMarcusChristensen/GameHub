@@ -7,6 +7,8 @@ const signedIn = document.querySelector("#auth-signed-in");
 const registerButton = document.querySelector("#register-button");
 const logoutButton = document.querySelector("#logout-button");
 
+let registering = false;
+
 function showUser(user) {
     signedOut.hidden = Boolean(user);
     signedIn.hidden = !user;
@@ -38,6 +40,7 @@ async function submitAuth(register) {
     authStatus.textContent = register ? "Creating account…" : "Signing in…";
     authStatus.classList.remove("error");
     authForm.querySelectorAll("button").forEach(button => button.disabled = true);
+    registerButton.disabled = true;
     let accountCreated = false;
     try {
         if (register) {
@@ -53,15 +56,30 @@ async function submitAuth(register) {
             : error.message;
         authStatus.classList.add("error");
     } finally {
+        registerButton.disabled = false;
         authForm.querySelectorAll("button").forEach(button => button.disabled = false);
     }
 }
 
 authForm.addEventListener("submit", event => {
     event.preventDefault();
-    submitAuth(false);
+    submitAuth(registering);
 });
-registerButton.addEventListener("click", () => submitAuth(true));
+registerButton.addEventListener("click", () => {
+    registering = !registering;
+    document.querySelector("#auth-heading").textContent = registering ? "Create your account" : "Sign in to GameHub";
+    document.querySelector("#auth-kicker").textContent = registering ? "Join GameHub" : "Welcome back";
+    document.querySelector("#auth-intro").textContent = registering ? "Start building your esports registry." : "Access your player and team registry.";
+    document.querySelector("#auth-submit").textContent = registering ? "Create account →" : "Sign in →";
+    document.querySelector("#switch-label").textContent = registering ? "Already have an account?" : "Don’t have an account?";
+    registerButton.textContent = registering ? "Sign in" : "Create account";
+    authPassword.minLength = registering ? 8 : 1;
+    authPassword.placeholder = registering ? "8+ characters" : "";
+    authPassword.autocomplete = registering ? "new-password" : "current-password";
+    authPassword.value = "";
+    authStatus.textContent = "";
+    authEmail.focus();
+});
 logoutButton.addEventListener("click", async () => {
     logoutButton.disabled = true;
     try {

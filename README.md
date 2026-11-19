@@ -4,6 +4,8 @@ GameHub is an information hub for League of Legends data. The initial version wi
 
 The project uses the official Riot Games API to retrieve League of Legends account and match data.
 
+For local Neo4j imports and test resets, see the [migration and cleanup commands](doc/neo4j/README.md#kommandoer-til-migrering-og-rydning).
+
 ## Riot Games development account
 
 To use the Riot Games API, each developer must create a free account on the Riot Developer Portal:

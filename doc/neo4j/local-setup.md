@@ -1,19 +1,47 @@
-# Local Neo4j demo
+# Kør og test Neo4j lokalt
 
-From the project root, start only Neo4j:
+Kør kommandoerne fra GameHub-projektets rod. Brug projektets Java 21, Maven-wrapper og Docker Compose.
 
-```sh
-docker compose -f docker-compose.neo4j.yml up -d
-```
-
-Open http://localhost:7474, connect to `bolt://localhost:7687` and log in with username `neo4j` and password `gamehub-local-demo`. This is a local development password; to choose your own before the first start, set `NEO4J_PASSWORD` in the ignored root `.env` file. The initial password only applies to a new database volume; changing the environment variable does not change an existing database password.
-
-Copy the first query in `demo.cypher` into Neo4j Browser and run it. It creates two example nodes and a membership relationship. Run the second query to retrieve them. The demo uses separate labels and a relationship type so it is not confused with migrated MySQL data. `MERGE` makes rerunning this example safe.
-
-To stop the container while preserving its data:
+## 1. Start databaserne
 
 ```sh
-docker compose -f docker-compose.neo4j.yml stop
+docker compose up -d gamehub_db neo4j
+docker compose ps
 ```
 
-The named volume persists data between starts. This demo does not migrate MySQL data.
+Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compose skal projektets `.env` pege på den publicerede MySQL-port (`DB_PORT=3307`), databasen `gameHub` og den tilhørende bruger og adgangskode. Neo4j Browser ligger på <http://localhost:7474>, og driveren bruger `bolt://localhost:7687`. Standardbrugeren er `neo4j`. Den lokale standardkode er `gamehub-local-demo`. Hvis projektet har sat `NEO4J_PASSWORD`, bruges den adgangskode, volumenet blev oprettet med.
+
+## 2. Importér
+
+```sh
+./mvnw spring-boot:run -Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration
+```
+
+Ved succes vises antal verificerede rækker pr. tabel og til sidst `Neo4j migration completed and verified.`. Hvis en kørsel fx melder `Player contains unexpected nodes`, findes der flere Player-noder i målet end forventet fra kilden. Kontrollér de eksisterende noder i Browser. Importens dataændringer er rullet tilbage.
+
+## 3. Se resultatet
+
+Kør følgende i Neo4j Browser for at se medlemskaberne som en graf:
+
+```cypher
+MATCH path = (:Player)-[:MEMBER_OF]->(:Team)
+RETURN path
+```
+
+For at teste gennem Java skal den almindelige GameHub-backend køre. Start den om nødvendigt:
+
+```sh
+./mvnw spring-boot:run -Dspring-boot.run.main-class=com.gamehub.GameHubApplication
+```
+
+Log ind på GameHub og åbn <http://localhost:8080/api/graph/players/9/teams> i samme browser. I det testede datasæt har Raven id 9. Brug det aktuelle spiller-id, hvis kildedataene har ændret sig.
+
+## 4. Ryd grafen før en ny test
+
+```sh
+./scripts/clear-neo4j.sh
+```
+
+Kontrollér destinationen, de viste labels og antallene. Tryk Enter for at annullere, eller skriv `CLEAR` for at slette. Kommandoen rammer **alle noder med GameHubs labels**, også manuelt oprettede testnoder. Den fjerner de mappede relationer og noder i én transaktion. En anden relation til en af noderne får rydningen til at rulle tilbage. MySQL-data og grafens unikhedsregler bevares. Vent på afslutning, og kør så importkommandoen fra trin 2.
+
+Stop om nødvendigt Neo4j med `docker compose stop neo4j`. Data gemmes i projektets Docker-volumen.

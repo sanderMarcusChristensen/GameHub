@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 720" width="760" height="720" role="img" aria-labelledby="title desc">
+<title id="title">Fra MySQL til Neo4j</title><desc id="desc">GraphMigration styrer importen. Pilene viser arbejdets rækkefølge og udfaldet af kontrollen.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#166a71"/></marker></defs>
+<rect width="760" height="720" fill="white"/><g font-family="Arial, sans-serif" text-anchor="middle" fill="#162e43">
+<text x="380" y="35" font-size="25" font-weight="bold">Fra MySQL til Neo4j</text>
+<rect x="125" y="55" width="510" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="380.0" y="80" font-size="19" font-weight="bold">GraphMigration.main</text><text x="380.0" y="103" font-size="16">Starter importen og styrer trinnene nedenfor.</text>
+<path d="M380 117V139" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="125" y="141" width="510" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="380.0" y="166" font-size="19" font-weight="bold">MySqlSnapshot.read</text><text x="380.0" y="189" font-size="16">Læser bl.a. spiller 9, Raven, og hold 3, Berlin Bears.</text>
+<path d="M380 203V225" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="125" y="227" width="510" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="380.0" y="252" font-size="19" font-weight="bold">GraphPropertyMapper</text><text x="380.0" y="275" font-size="16">Gør værdierne klar til Neo4j. Ravens id er stadig 9.</text>
+<path d="M380 289V311" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="125" y="313" width="510" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="380.0" y="338" font-size="19" font-weight="bold">GraphNodeMapping</text><text x="380.0" y="361" font-size="16">Angiver, hvordan spiller 9 og hold 3 bliver til noder.</text>
+<path d="M380 375V397" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="125" y="399" width="510" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="380.0" y="424" font-size="19" font-weight="bold">GraphRelationshipMapping</text><text x="380.0" y="447" font-size="16">Angiver pilen MEMBER_OF og medlemsperiodens datoer.</text>
+<path d="M380 461V483" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M380 485l200 54-200 54-200-54Z" fill="#fff3cf" stroke="#887132"/><text x="380" y="535" font-size="18" font-weight="bold">GraphMigration</text><text x="380" y="557" font-size="16">Stemmer data og forbindelser?</text>
+<path d="M180 539H170V628" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M580 539H590V628" fill="none" stroke="#166a71" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="190" y="598" font-size="17">Ja</text>
+<text x="610" y="598" font-size="17">Nej</text>
+<rect x="22" y="630" width="316" height="62" rx="9" fill="#edf5f6" stroke="#518286"/><text x="180.0" y="655" font-size="19" font-weight="bold">Gem importen</text><text x="180.0" y="678" font-size="16">Raven og holdhistorikken er i grafen.</text>
+<rect x="422" y="630" width="316" height="62" rx="9" fill="#fff0ed" stroke="#518286"/><text x="580.0" y="655" font-size="19" font-weight="bold">Rul importen tilbage</text><text x="580.0" y="678" font-size="16">Ændringer i datatransaktionen fortrydes.</text>
+</g></svg>
