@@ -1,5 +1,7 @@
+
 package com.gamehub.entity.document;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,8 +18,61 @@ public class PlayerDocument {
     private LocalDateTime createdAt;
 
     private List<TeamMembership> teamHistory;
+    private PlayerStatistics statistics;
 
     public PlayerDocument() {
+    }
+
+    public static class PlayerStatistics {
+
+        private Integer gamesPlayed;
+        private Integer wins;
+        private Integer losses;
+        private BigDecimal winRate;
+        private LocalDateTime updatedAt;
+
+        public PlayerStatistics() {
+        }
+
+        public Integer getGamesPlayed() {
+            return gamesPlayed;
+        }
+
+        public void setGamesPlayed(Integer gamesPlayed) {
+            this.gamesPlayed = gamesPlayed;
+        }
+
+        public Integer getWins() {
+            return wins;
+        }
+
+        public void setWins(Integer wins) {
+            this.wins = wins;
+        }
+
+        public Integer getLosses() {
+            return losses;
+        }
+
+        public void setLosses(Integer losses) {
+            this.losses = losses;
+        }
+
+        public BigDecimal getWinRate() {
+            return winRate;
+        }
+
+        public void setWinRate(BigDecimal winRate) {
+            this.winRate = winRate;
+        }
+
+        public LocalDateTime getUpdatedAt() {
+            return updatedAt;
+        }
+
+        public void setUpdatedAt(LocalDateTime updatedAt) {
+            this.updatedAt = updatedAt;
+        }
     }
 
     public static class TeamMembership {
@@ -90,5 +145,13 @@ public class PlayerDocument {
 
     public void setTeamHistory(List<TeamMembership> teamHistory) {
         this.teamHistory = teamHistory;
+    }
+
+    public PlayerStatistics getStatistics() {
+        return statistics;
+    }
+
+    public void setStatistics(PlayerStatistics statistics) {
+        this.statistics = statistics;
     }
 }
