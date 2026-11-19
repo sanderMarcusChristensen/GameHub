@@ -62,25 +62,61 @@ The context test uses a dummy Cito key and does not call the external API.
 
 ## Using account authentication
 
-With GameHub running, use PowerShell (change the port if needed). Registration
-requires a unique email and a password of at least 8 characters. It creates a
-`USER` account.
+Open a second PowerShell terminal and run this once. Change `8080` if the app
+uses another port.
 
 ```powershell
 $baseUrl = "http://localhost:8080"
 $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
-$postApi = {
-    param($path, $body)
-    $csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
-    Invoke-RestMethod "$baseUrl$path" -Method Post -WebSession $session `
-        -Headers @{ "X-CSRF-TOKEN" = $csrf.token } `
-        -ContentType "application/json" -Body $body
-}
-$credentials = @{ email = "you@example.com"; password = "choose-a-password" } | ConvertTo-Json
-& $postApi "/api/auth/register" $credentials
-& $postApi "/api/auth/login" $credentials
+```
+
+### Registration
+
+Paste this to create a `USER` account. Choose a unique email and a password with
+at least 8 characters.
+
+```powershell
+$csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
+$body = @{ email = "you@example.com"; password = "choose-a-password" } | ConvertTo-Json
+
+Invoke-RestMethod "$baseUrl/api/auth/register" -Method Post `
+    -WebSession $session `
+    -Headers @{ "X-CSRF-TOKEN" = $csrf.token } `
+    -ContentType "application/json" -Body $body
+```
+
+### Login
+
+Paste this to sign in with the registered account.
+
+```powershell
+$csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
+$body = @{ email = "you@example.com"; password = "choose-a-password" } | ConvertTo-Json
+
+Invoke-RestMethod "$baseUrl/api/auth/login" -Method Post `
+    -WebSession $session `
+    -Headers @{ "X-CSRF-TOKEN" = $csrf.token } `
+    -ContentType "application/json" -Body $body
+```
+
+### Check who is logged in
+
+Paste this to call `/api/auth/me`:
+
+```powershell
 Invoke-RestMethod "$baseUrl/api/auth/me" -WebSession $session
-& $postApi "/api/auth/logout" "{}"
+```
+
+### Logout
+
+Paste this to end the login session:
+
+```powershell
+$csrf = Invoke-RestMethod "$baseUrl/api/auth/csrf" -WebSession $session
+
+Invoke-RestMethod "$baseUrl/api/auth/logout" -Method Post `
+    -WebSession $session `
+    -Headers @{ "X-CSRF-TOKEN" = $csrf.token }
 ```
 
 Registration only creates `USER` accounts. Admin roles must be assigned separately.

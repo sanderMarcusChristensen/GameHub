@@ -20,6 +20,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import com.gamehub.enums.MatchStatus;
 
 @Getter
 @NoArgsConstructor
