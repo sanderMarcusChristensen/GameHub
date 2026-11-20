@@ -1,0 +1,117 @@
+<mxfile host="65bd71144e">
+    <diagram id="gamehub-local-v9" name="GameHub local architecture">
+        <mxGraphModel dx="1548" dy="1169" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" background="light-dark(#ffffff, #121212)" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="host" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#F8FAFC;" value="" vertex="1">
+                    <mxGeometry height="900" width="1340" x="30" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="host-title" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=26;fontStyle=1;fontColor=#0f172a;strokeColor=none;fillColor=none;" value="GameHub – Local development environment" vertex="1">
+                    <mxGeometry height="45" width="900" x="65" y="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="host-subtitle" parent="1" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontColor=#475569;strokeColor=none;fillColor=none;" value="Spring Boot application and database containers managed locally with Docker Compose" vertex="1">
+                    <mxGeometry height="30" width="1050" x="65" y="85" as="geometry"/>
+                </mxCell>
+                <mxCell id="app" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#5285b8;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="240" width="500" x="100" y="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="app-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#17365d;strokeColor=none;fillColor=none;" value="Spring Boot application" vertex="1">
+                    <mxGeometry height="40" width="450" x="125" y="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="controllers" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#93b4dc;fontSize=16;fontColor=#334155;" value="Controllers&lt;br&gt;REST API endpoints" vertex="1">
+                    <mxGeometry height="45" width="420" x="140" y="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="services" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#93b4dc;fontSize=16;fontColor=#334155;" value="Services&lt;br&gt;Application logic" vertex="1">
+                    <mxGeometry height="45" width="420" x="140" y="295" as="geometry"/>
+                </mxCell>
+                <mxCell id="jpa" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#93b4dc;fontSize=16;fontColor=#334155;" value="Repositories&lt;br&gt;Spring Data JPA" vertex="1">
+                    <mxGeometry height="45" width="420" x="140" y="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="migrator" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#f5f3ff;strokeColor=#8b75bd;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="230" width="500" x="100" y="550" as="geometry"/>
+                </mxCell>
+                <mxCell id="migrator-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#493779;strokeColor=none;fillColor=none;" value="Database migrator" vertex="1">
+                    <mxGeometry height="40" width="450" x="125" y="565" as="geometry"/>
+                </mxCell>
+                <mxCell id="migrator-description" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=15;fontColor=#5b5270;strokeColor=none;fillColor=none;" value="Two independent migration processes&lt;br&gt;Read relational data from MySQL and transform it for each target database" vertex="1">
+                    <mxGeometry height="55" width="450" x="125" y="605" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-migration" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a897ce;fontSize=16;fontColor=#493779;" value="Document migration&lt;br&gt;MySQL → MongoDB" vertex="1">
+                    <mxGeometry height="65" width="205" x="355" y="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="graph-migration" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a897ce;fontSize=16;fontColor=#493779;" value="Graph migration&lt;br&gt;MySQL → Neo4j" vertex="1">
+                    <mxGeometry height="65" width="205" x="140" y="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#eff6ff;strokeColor=#93b4dc;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="700" width="500" x="800" y="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=26;fontStyle=1;fontColor=#17365d;strokeColor=none;fillColor=none;" value="Docker Compose" vertex="1">
+                    <mxGeometry height="45" width="460" x="820" y="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker-subtitle" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#475569;strokeColor=none;fillColor=none;" value="Database containers" vertex="1">
+                    <mxGeometry height="30" width="460" x="820" y="215" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#5482ad;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="150" width="400" x="850" y="285" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=27;fontStyle=1;fontColor=#17365d;strokeColor=none;fillColor=none;" value="MySQL" vertex="1">
+                    <mxGeometry height="40" width="360" x="870" y="305" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql-body" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=17;fontColor=#475569;strokeColor=none;fillColor=none;" value="Primary relational database&lt;br&gt;Container: gamehub_db&lt;br&gt;Schema: gameHub" vertex="1">
+                    <mxGeometry height="70" width="360" x="870" y="350" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#639b78;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="130" width="400" x="850" y="490" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=25;fontStyle=1;fontColor=#28613e;strokeColor=none;fillColor=none;" value="MongoDB" vertex="1">
+                    <mxGeometry height="40" width="360" x="870" y="505" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-body" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#475569;strokeColor=none;fillColor=none;" value="Document database&lt;br&gt;MongoDB container" vertex="1">
+                    <mxGeometry height="55" width="360" x="870" y="548" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo4j" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#a17bba;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="130" width="400" x="850" y="675" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo4j-title" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=25;fontStyle=1;fontColor=#65427f;strokeColor=none;fillColor=none;" value="Neo4j" vertex="1">
+                    <mxGeometry height="40" width="360" x="870" y="690" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo4j-body" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=16;fontColor=#475569;strokeColor=none;fillColor=none;" value="Graph database&lt;br&gt;Neo4j container" vertex="1">
+                    <mxGeometry height="55" width="360" x="870" y="733" as="geometry"/>
+                </mxCell>
+                <mxCell id="app-mysql" edge="1" parent="1" source="jpa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#2563eb;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontColor=#1e40af;labelBackgroundColor=#ffffff;" target="mysql" value="Normal application access&lt;br&gt;Spring Data JPA">
+                    <mxGeometry relative="1" x="-0.1529" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="705" y="372.5"/>
+                            <mxPoint x="705" y="306"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="migration-read" edge="1" parent="1" source="migrator" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontColor=#5b21b6;labelBackgroundColor=#ffffff;" target="mysql" value="Read relational data&lt;br&gt;JPA repositories / SQL">
+                    <mxGeometry relative="1" x="0.4165" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="350" y="511.7"/>
+                            <mxPoint x="704.7" y="511.7"/>
+                            <mxPoint x="704.7" y="413.2"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="migration-mongo" edge="1" parent="1" source="mongo-migration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontColor=#5b21b6;labelBackgroundColor=#ffffff;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="mongo" value="Write documents">
+                    <mxGeometry relative="1" x="0.2372" as="geometry"/>
+                </mxCell>
+                <mxCell id="migration-neo4j" edge="1" parent="1" source="graph-migration" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#7c3aed;strokeWidth=2;endArrow=block;endFill=1;fontSize=15;fontColor=#5b21b6;labelBackgroundColor=#ffffff;" target="neo4j" value="Write graph structures">
+                    <mxGeometry relative="1" x="0.3782" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="242.5" y="825.4"/>
+                            <mxPoint x="707.7" y="825.4"/>
+                            <mxPoint x="707.7" y="740"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="footer" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=15;fontColor=#64748b;strokeColor=none;fillColor=none;" value="All databases run locally in Docker containers. The migrators are executed separately from normal application operation." vertex="1">
+                    <mxGeometry height="30" width="1200" x="100" y="875" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
