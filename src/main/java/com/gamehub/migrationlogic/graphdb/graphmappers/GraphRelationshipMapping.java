@@ -1,4 +1,4 @@
-package com.gamehub.mapper.graph;
+package com.gamehub.migrationlogic.graphdb.graphmappers;
 
 import java.util.List;
 import java.util.Map;

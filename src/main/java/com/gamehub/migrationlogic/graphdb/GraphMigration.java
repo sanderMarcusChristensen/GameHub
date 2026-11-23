@@ -1,8 +1,12 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
-import com.gamehub.mapper.graph.GraphNodeMapping;
-import com.gamehub.mapper.graph.GraphPropertyMapper;
-import com.gamehub.mapper.graph.GraphRelationshipMapping;
+import java.sql.DriverManager;
+import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.GraphDatabase;
 import org.neo4j.driver.Session;
@@ -11,12 +15,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.env.Environment;
 
-import java.sql.DriverManager;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphNodeMapping;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphPropertyMapper;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphRelationshipMapping;
 
 /** Standalone command. Load GameHub configuration without starting controllers or repositories. */
 public class GraphMigration {

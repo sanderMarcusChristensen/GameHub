@@ -1,4 +1,4 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
