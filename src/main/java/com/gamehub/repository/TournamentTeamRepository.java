@@ -13,4 +13,6 @@ public interface TournamentTeamRepository
     List<TournamentTeam> findByTournament_Id(Long tournamentId);
 
     List<TournamentTeam> findByTeam_Id(Long teamId);
+
+    boolean existsByTournament_IdAndTeam_Id(Long tournamentId, Long teamId);
 }
