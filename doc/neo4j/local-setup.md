@@ -9,15 +9,15 @@ docker compose up -d gamehub_db neo4j
 docker compose ps
 ```
 
-Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compose skal projektets `.env` pege på den publicerede MySQL-port (`DB_PORT=3307`), databasen `gameHub` og den tilhørende bruger og adgangskode. Neo4j Browser ligger på <http://localhost:7474>, og driveren bruger `bolt://localhost:7687`. Standardbrugeren er `neo4j`. Den lokale standardkode er `gamehub-local-demo`. Hvis projektet har sat `NEO4J_PASSWORD`, bruges den adgangskode, volumenet blev oprettet med.
+Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compose skal projektets `.env` pege på den publicerede MySQL-port (`DB_PORT=3307`), databasen `gameHub` og den tilhørende bruger og adgangskode. Neo4j Browser ligger på <http://localhost:7474>, og driveren bruger `http://localhost:7474/browser/`. Standardbrugeren er `neo4j`. Den lokale standardkode er `gamehub-local-demo`. Hvis projektet har sat `NEO4J_PASSWORD`, bruges den adgangskode, volumenet blev oprettet med.
 
 ## 2. Importér
 
 ```sh
-./mvnw spring-boot:run -Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration
+./mvnw spring-boot:run -Dspring-boot.run.profiles=migrate-neo4j
 ```
 
-Ved succes vises antal verificerede rækker pr. tabel og til sidst `Neo4j migration completed and verified.`. Hvis en kørsel fx melder `Player contains unexpected nodes`, findes der flere Player-noder i målet end forventet fra kilden. Kontrollér de eksisterende noder i Browser. Importens dataændringer er rullet tilbage.
+Ved succes vises antal verificerede rækker pr. tabel og til sidst `Neo4j migration completed and verified.`. Hvis en kørsel fx melder `Player: expected 12 matches, found 13`, findes der flere Player-noder i målet end forventet fra kilden. Kontrollér de eksisterende noder i Browser. Importens dataændringer er rullet tilbage.
 
 ## 3. Se resultatet
 

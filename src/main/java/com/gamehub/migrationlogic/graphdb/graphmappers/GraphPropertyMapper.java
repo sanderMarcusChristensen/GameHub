@@ -1,20 +1,27 @@
-package com.gamehub.mapper.graph;
+package com.gamehub.migrationlogic.graphdb.graphmappers;
 
-import com.gamehub.migration.MySqlSnapshot;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Component;
+
+import com.gamehub.migrationlogic.graphdb.MySqlSnapshot;
 
 /** Converts snapshot values to the property types stored in Neo4j. */
-public final class GraphPropertyMapper {
-    private GraphPropertyMapper() {}
+@Component
+public class GraphPropertyMapper {
 
-    public static Map<String, List<Map<String, Object>>> graphProperties(MySqlSnapshot snapshot) {
+    public Map<String, List<Map<String, Object>>> mapAll(MySqlSnapshot snapshot) {
         Map<String, List<Map<String, Object>>> data = new LinkedHashMap<>();
-        snapshot.tables().forEach((table, rows) -> data.put(table, rows.stream()
-            .map(row -> graphRow(table, row)).toList()));
+        for (var table : snapshot.tables().entrySet()) {
+            String tableName = table.getKey();
+            var rows = table.getValue().stream()
+                    .map(row -> graphRow(tableName, row))
+                    .toList();
+            data.put(tableName, rows);
+        }
         return data;
     }
 

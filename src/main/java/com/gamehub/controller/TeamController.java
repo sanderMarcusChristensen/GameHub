@@ -1,9 +1,8 @@
 package com.gamehub.controller;
 
-import com.gamehub.dto.TeamDto;
-import com.gamehub.dto.TeamRequestDto;
-import com.gamehub.service.TeamService;
-import jakarta.validation.Valid;
+import java.net.URI;
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.util.List;
+import com.gamehub.dto.TeamDto;
+import com.gamehub.dto.TeamRequestDto;
+import com.gamehub.service.TeamService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/teams")

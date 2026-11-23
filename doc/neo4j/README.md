@@ -1,6 +1,6 @@
 # Neo4j i GameHub
 
-Vi bruger Neo4j til at undersøge forbindelser mellem spillere, hold og kampe. MySQL indeholder allerede de data, vi skal bruge. En Java-kommando læser dem én gang og bygger grafen. Efter importen kan GameHub fx svare på “Hvilke hold har Raven spillet på, og hvornår?” ved at følge spillerens medlemskaber.
+Vi bruger Neo4j til at undersøge forbindelser mellem spillere, hold og kampe. MySQL indeholder allerede de data, vi skal bruge. Når GameHub starter med Spring-profilen `migrate-neo4j`, læser migreringen dataene og bygger grafen. Efter importen kan GameHub fx svare på “Hvilke hold har Raven spillet på, og hvornår?” ved at følge spillerens medlemskaber.
 
 [Se grafmodellen](graph-design.md) · [Kør migreringen lokalt](local-setup.md) · [Hent figurer til rapporten](figurer/)
 
@@ -12,7 +12,7 @@ Kør fra GameHub-projektets rod.
 |---|---|
 | Start MySQL og Neo4j | `docker compose up -d gamehub_db neo4j` |
 | Tjek at databaserne kører | `docker compose ps` |
-| Importér fra MySQL til Neo4j, også efter en rydning | `./mvnw spring-boot:run -Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration` |
+| Importér fra MySQL til Neo4j, også efter en rydning | `./mvnw spring-boot:run -Dspring-boot.run.profiles=migrate-neo4j` |
 | Vis hvad der kan ryddes i Neo4j | `./scripts/clear-neo4j.sh` |
 | Stop Neo4j efter testen | `docker compose stop neo4j` |
 
@@ -27,7 +27,7 @@ Kør fra GameHub-projektets rod.
 
 ### 1. Læs spiller, hold og medlemskaber
 
-Når vi starter [GraphMigration](../../src/main/java/com/gamehub/migration/GraphMigration.java), kalder den [MySqlSnapshot.read](../../src/main/java/com/gamehub/migration/MySqlSnapshot.java). Den læser alle 14 tabeller, som de så ud på samme tidspunkt, og holder rækkerne i hukommelsen under importen. Det er dét, vi kalder et *øjebliksbillede*.
+Spring Boot kalder `run` på [GraphMigration](../../src/main/java/com/gamehub/migrationlogic/graphdb/GraphMigration.java), som henter en forbindelse fra GameHubs `DataSource` og kalder [MySqlSnapshot.read](../../src/main/java/com/gamehub/migrationlogic/graphdb/MySqlSnapshot.java). Den læser alle 14 tabeller, som de så ud på samme tidspunkt, og holder rækkerne i hukommelsen under importen. Det er dét, vi kalder et *øjebliksbillede*.
 
 I Ravens eksempel står der, at spiller 9 hedder Raven, at hold 3 hedder Berlin Bears, og at spiller 9 kom på hold 3 den 1. januar 2025.
 
@@ -35,19 +35,19 @@ Hvis en tabel er tom, er der nul rækker at flytte. Hvis tabellen mangler, stopp
 
 ### 2. Gør værdierne klar til grafen
 
-En *egenskab* er en enkelt oplysning om noget, fx spillerens navn eller nummer. [GraphPropertyMapper](../../src/main/java/com/gamehub/mapper/graph/GraphPropertyMapper.java) kopierer de fleste oplysninger direkte. Navnet `Raven` bliver stadig til `Raven`. En sejrsprocent gemmes derimod som et heltal med to underforståede decimaler.
+En *egenskab* er en enkelt oplysning om noget, fx spillerens navn eller nummer. [GraphPropertyMapper](../../src/main/java/com/gamehub/migrationlogic/graphdb/graphmappers/GraphPropertyMapper.java) kopierer de fleste oplysninger direkte. Navnet `Raven` bliver stadig til `Raven`. En sejrsprocent gemmes derimod som et heltal med to underforståede decimaler.
 
 ### 3. Opret spilleren og forbind ham med holdet
 
-[GraphNodeMapping](../../src/main/java/com/gamehub/mapper/graph/GraphNodeMapping.java) fortæller, at rækken fra `players` bliver en `Player`-node, som vi kan finde på id 9.
+[GraphNodeMapping](../../src/main/java/com/gamehub/migrationlogic/graphdb/graphmappers/GraphNodeMapping.java) fortæller, at rækken fra `players` bliver en `Player`-node, som vi kan finde på id 9.
 
-[GraphRelationshipMapping](../../src/main/java/com/gamehub/mapper/graph/GraphRelationshipMapping.java) fortæller, at rækken fra `team_players` bliver en pil fra spiller 9 til hold 3. På pilen står `MEMBER_OF` og startdatoen. Ravens tidligere periode hos Copenhagen Wolves får sin egen pil med både start- og slutdato.
+[GraphRelationshipMapping](../../src/main/java/com/gamehub/migrationlogic/graphdb/graphmappers/GraphRelationshipMapping.java) fortæller, at rækken fra `team_players` bliver en pil fra spiller 9 til hold 3. På pilen står `MEMBER_OF` og startdatoen. Ravens tidligere periode hos Copenhagen Wolves får sin egen pil med både start- og slutdato.
 
 ### 4. Tjek resultatet og gem
 
 I vores test læste migratoren 12 medlemsperioder fra MySQL. Den tjekkede både antallet i grafen og hver enkelt forbindelse. Ravens periode fra januar 2025 skal pege på *Berlin Bears*. Selv hvis der er 12 pile i alt, ville et forkert hold give en fejl.
 
-Ved succes gemmes importen samlet. Ved fejl fortrydes denne kørsels dataændringer. Reglerne om unikke id’er oprettes før importen og kan derfor blive stående.
+[GraphMigrationRepository](../../src/main/java/com/gamehub/migrationlogic/graphdb/GraphMigrationRepository.java) bruger Spring Datas `Neo4jClient` til at skrive og kontrollere grafen i samme transaktion. Ved succes gemmes importen samlet. Ved fejl fortrydes denne kørsels dataændringer. Reglerne om unikke id’er oprettes før importen og kan derfor blive stående.
 
 ### Eksempler på værdier før og efter importen
 
@@ -60,7 +60,7 @@ Ved succes gemmes importen samlet. Ved fejl fortrydes denne kørsels dataændrin
 
 ### Hvis importen køres igen
 
-Ved en ny kørsel læses MySQL igen. Hvis data er de samme, finder migratoren Raven på id 9 og genbruger hans medlemsperioder. Hvis en eksisterende værdi i grafen er i konflikt med det nye øjebliksbillede, afbrydes importen. [Se de tre mapperklasser](../../src/main/java/com/gamehub/mapper/graph/).
+Ved en ny kørsel læses MySQL igen. Hvis data er de samme, finder migratoren Raven på id 9 og genbruger hans medlemsperioder. Hvis en eksisterende værdi i grafen er i konflikt med det nye øjebliksbillede, afbrydes importen. [Se de tre mapperklasser](../../src/main/java/com/gamehub/migrationlogic/graphdb/graphmappers/).
 
 ## Sådan bruger Java grafen
 
