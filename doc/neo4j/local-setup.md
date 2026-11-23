@@ -9,7 +9,7 @@ docker compose up -d gamehub_db neo4j
 docker compose ps
 ```
 
-Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compose skal projektets `.env` pege på den publicerede MySQL-port (`DB_PORT=3307`), databasen `gameHub` og den tilhørende bruger og adgangskode. Neo4j Browser ligger på <http://localhost:7474>, og driveren bruger `bolt://localhost:7687`. Standardbrugeren er `neo4j`. Den lokale standardkode er `gamehub-local-demo`. Hvis projektet har sat `NEO4J_PASSWORD`, bruges den adgangskode, volumenet blev oprettet med.
+Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compose skal projektets `.env` pege på den publicerede MySQL-port (`DB_PORT=3307`), databasen `gameHub` og den tilhørende bruger og adgangskode. Neo4j Browser ligger på <http://localhost:7474>, og driveren bruger `http://localhost:7474/browser/`. Standardbrugeren er `neo4j`. Den lokale standardkode er `gamehub-local-demo`. Hvis projektet har sat `NEO4J_PASSWORD`, bruges den adgangskode, volumenet blev oprettet med.
 
 ## 2. Importér
 
