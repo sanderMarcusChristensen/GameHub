@@ -1,0 +1,125 @@
+<mxfile host="65bd71144e">
+    <diagram id="logical-model" name="Logical model">
+        <mxGraphModel dx="420" dy="324" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="1060" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="background" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=2;" value=" " vertex="1">
+                    <mxGeometry height="1000" width="1260" x="30" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_tournament_teams" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Tournament Teams&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;tournament_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;team_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;registered_at : datetime" vertex="1">
+                    <mxGeometry height="98" width="260" x="60" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_teams" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Teams&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;team_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;name : string&lt;br&gt;short_name : string&lt;br&gt;created_at : timestamp" vertex="1">
+                    <mxGeometry height="118" width="260" x="60" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_team_players" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Team Players&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;team_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;player_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;joined_at : datetime &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;left_at : datetime" vertex="1">
+                    <mxGeometry height="118" width="260" x="60" y="440" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_players" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Players&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;player_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;nickname : string&lt;br&gt;created_at : timestamp" vertex="1">
+                    <mxGeometry height="98" width="260" x="60" y="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_tournaments" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Tournaments&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;tournament_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;name : string&lt;br&gt;start_date : datetime&lt;br&gt;end_date : datetime&lt;br&gt;created_at : timestamp" vertex="1">
+                    <mxGeometry height="138" width="280" x="520" y="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_matches" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Matches&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;match_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;tournament_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;team_a_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;team_b_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;format : enum (BO1, BO3, BO5)&lt;br&gt;status : enum&lt;br&gt;winner_team_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;scheduled_at : datetime&lt;br&gt;created_at : timestamp" vertex="1">
+                    <mxGeometry height="218" width="280" x="520" y="260" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_games" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Games&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;game_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;match_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;game_number : integer&lt;br&gt;winner_team_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;started_at : datetime&lt;br&gt;ended_at : datetime&lt;br&gt;created_at : timestamp" vertex="1">
+                    <mxGeometry height="178" width="280" x="520" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_pgs" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Player Game Statistics&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;game_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;player_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;team_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;champion_id : identifier &lt;b&gt;[FK]&lt;/b&gt;&lt;br&gt;kills : integer&lt;br&gt;deaths : integer&lt;br&gt;assists : integer" vertex="1">
+                    <mxGeometry height="178" width="280" x="520" y="820" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_champion_roles" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Champion Roles&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;role_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;name : string" vertex="1">
+                    <mxGeometry height="78" width="280" x="937" y="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_chcr" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Champions Has Champion Roles&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;champion_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;&lt;br&gt;role_id : identifier &lt;b&gt;[PK][FK]&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="78" width="280" x="937" y="700" as="geometry"/>
+                </mxCell>
+                <mxCell id="r_champions" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=12;align=left;verticalAlign=top;spacingLeft=8;spacingTop=4;" value="&lt;b&gt;Champions&lt;/b&gt;&lt;hr size=&quot;1&quot;&gt;champion_id : identifier &lt;b&gt;[PK]&lt;/b&gt;&lt;br&gt;name : string&lt;br&gt;released_at : date" vertex="1">
+                    <mxGeometry height="98" width="280" x="937" y="840" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_tournament_teams" edge="1" parent="1" source="r_tournaments" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0;exitY=0.362;exitDx=0;exitDy=0;entryX=1;entryY=0.51;entryDx=0;entryDy=0;" target="r_tournament_teams" value="tournament_id">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_teams_tt" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="r_tournament_teams" value="team_id">
+                    <mxGeometry relative="1" x="-0.068" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_teams_tp" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_team_players" value="team_id">
+                    <mxGeometry relative="1" x="-0.1348" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_players_tp" edge="1" parent="1" source="r_players" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="r_team_players" value="player_id">
+                    <mxGeometry relative="1" x="-0.0344" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_tournament_match" edge="1" parent="1" source="r_tournaments" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_matches" value="tournament_id">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_team_a_match" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.135;entryDx=0;entryDy=0;entryPerimeter=0;" target="r_matches" value="team_a_id">
+                    <mxGeometry relative="1" x="0.0002" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_team_b_match" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="r_matches" value="team_b_id">
+                    <mxGeometry relative="1" x="-0.2" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="490" y="319"/>
+                            <mxPoint x="490" y="369"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_teams_game_winner" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERzeroToOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="r_games" value="winner_team_id">
+                    <mxGeometry relative="1" x="-0.1568" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="460.9" y="348.5"/>
+                            <mxPoint x="460.9" y="649"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_teams_pgs" edge="1" parent="1" source="r_teams" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="r_pgs" value="team_id">
+                    <mxGeometry relative="1" x="0.171" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="255" y="413.6"/>
+                            <mxPoint x="407.5" y="413.6"/>
+                            <mxPoint x="407.5" y="864.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_match_game" edge="1" parent="1" source="r_matches" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_games" value="match_id">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_game_pgs" edge="1" parent="1" source="r_games" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_pgs" value="game_id">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_players_pgs" edge="1" parent="1" source="r_players" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="r_pgs" value="player_id">
+                    <mxGeometry relative="1" x="-0.0484" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="362.9" y="689"/>
+                            <mxPoint x="362.9" y="953.5"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_champion_pgs" edge="1" parent="1" source="r_champions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0;exitY=0.469;exitDx=0;exitDy=0;entryX=1;entryY=0.371;entryDx=0;entryDy=0;" target="r_pgs" value="champion_id">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_champion_chcr" edge="1" parent="1" source="r_champions" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="r_chcr" value="champion_id">
+                    <mxGeometry relative="1" x="-0.0784" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_role_chcr" edge="1" parent="1" source="r_champion_roles" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;fontFamily=Arial;fontSize=10;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="r_chcr" value="role_id">
+                    <mxGeometry relative="1" x="-0.1045" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

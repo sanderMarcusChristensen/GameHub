@@ -1,0 +1,82 @@
+<mxfile host="65bd71144e">
+    <diagram id="conceptual-model" name="Conceptual model">
+        <mxGraphModel dx="503" dy="390" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1500" pageHeight="950" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="background" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=2;" value=" " vertex="1">
+                    <mxGeometry height="880" width="1140" x="280" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_tournament" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Tournament" vertex="1">
+                    <mxGeometry height="70" width="240" x="750" y="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_match" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Match" vertex="1">
+                    <mxGeometry height="70" width="240" x="750" y="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_game" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Game" vertex="1">
+                    <mxGeometry height="70" width="240" x="750" y="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_stats" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Player Game Statistics" vertex="1">
+                    <mxGeometry height="80" width="240" x="750" y="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_player" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Player" vertex="1">
+                    <mxGeometry height="70" width="240" x="750" y="760" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_team" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Team" vertex="1">
+                    <mxGeometry height="70" width="220" x="360" y="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_champion" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Champion" vertex="1">
+                    <mxGeometry height="80" width="220" x="1120" y="580" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_role" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#000000;fontFamily=Arial;fontSize=20;fontStyle=1;" value="Champion Role" vertex="1">
+                    <mxGeometry height="70" width="220" x="1120" y="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_tournament_match" edge="1" parent="1" source="e_tournament" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_match" value="contains">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_match_game" edge="1" parent="1" source="e_match" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_game" value="consists of">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_game_stats" edge="1" parent="1" source="e_game" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERoneToMany;endFill=0;" target="e_stats" value="records">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_player_stats" edge="1" parent="1" source="e_player" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_stats" value="plays">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_team_stats" edge="1" parent="1" source="e_team" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_stats" value="represents">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_champion_stats" edge="1" parent="1" source="e_champion" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_stats" value="uses">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_player_team" edge="1" parent="1" source="e_player" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERzeroToMany;startFill=0;endArrow=ERzeroToMany;endFill=0;rounded=0;curved=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="e_team" value="membership">
+                    <mxGeometry relative="1" x="-0.5749" y="2" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="470" y="796.39"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_match_team" edge="1" parent="1" source="e_match" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERzeroToMany;startFill=0;endArrow=ERoneToMany;endFill=0;rounded=0;curved=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="e_team" value="participation (2 teams)">
+                    <mxGeometry relative="1" x="-0.5728" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="525" y="275"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ed_champion_role" edge="1" parent="1" source="e_champion" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERzeroToMany;startFill=0;endArrow=ERzeroToMany;endFill=0;" target="e_role" value="can play">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="ed_tournament_team" edge="1" parent="1" source="e_tournament" style="edgeStyle=none;html=0;fontFamily=Arial;fontSize=14;strokeColor=#000000;labelBackgroundColor=#ffffff;startArrow=ERzeroToMany;startFill=0;endArrow=ERzeroToMany;endFill=0;rounded=0;curved=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="e_team" value="registers for">
+                    <mxGeometry relative="1" x="-0.7162" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="415" y="115"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
