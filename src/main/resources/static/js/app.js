@@ -4,6 +4,12 @@ const statusMessage = document.querySelector("#status");
 const result = document.querySelector("#result");
 const submitButton = form.querySelector("button");
 
+const example = document.querySelector("#example");
+example.addEventListener("click", () => {
+    playerNameInput.value = "faker";
+    form.requestSubmit();
+});
+
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -12,6 +18,7 @@ form.addEventListener("submit", async (event) => {
         return;
     }
 
+    form.closest("main").classList.add("lookup-active");
     setLoading(true);
 
     try {
@@ -44,13 +51,14 @@ function renderPlayer(name, stats) {
     const percent = value => Number.isFinite(value) ? number(value * 100, 1) + "%" : "—";
     const show = (id, value) => document.getElementById(id).textContent = value;
     show("handle", name);
-    show("games", number(stats.gamesPlayed) + " games");
+    show("games", number(stats.gamesPlayed));
     show("rate", percent(stats.winRate));
     show("record", number(stats.wins) + " wins · " + number(stats.losses) + " losses");
     show("kda", number(stats.avgKda, 2));
-    show("kills", [stats.avgKills, stats.avgDeaths, stats.avgAssists].map(v => number(v, 2)).join(" / ") + " K / D / A");
-    const arc = document.getElementById("arc");
-    arc.style.strokeDashoffset = 100 - 100 * (stats.winRate ?? 0);
+    show("kills", number(stats.avgKills, 2));
+    show("deaths", number(stats.avgDeaths, 2));
+    show("assists", number(stats.avgAssists, 2));
+    document.querySelector("#bar").style.width = Math.min(100, Math.max(0, (stats.winRate ?? 0) * 100)) + "%";
     const coverage = Number.isFinite(stats.coverage?.detailedStatsGames)
         ? "Based on " + number(stats.coverage.detailedStatsGames) + " detailed games." : "";
     const tiles = [
@@ -73,7 +81,8 @@ function renderPlayer(name, stats) {
 
 function setLoading(isLoading) {
     submitButton.disabled = isLoading;
-    submitButton.textContent = isLoading ? "Loading…" : "Get stats";
+    example.disabled = isLoading;
+    submitButton.textContent = isLoading ? "Loading…" : "Get stats →";
 
     if (isLoading) {
         result.hidden = true;

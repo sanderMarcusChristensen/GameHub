@@ -7,21 +7,34 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<header class="topbar">
+    <a class="brand" href="/" aria-label="GameHub home"><i aria-hidden="true">G</i>GAME<span>HUB</span></a>
+    <a class="lookup" href="/">Player lookup</a>
+    <a class="account" href="/login.html">Sign in</a>
+</header>
 <main class="page auth-page">
-    <a class="back-link" href="/">← Back to GameHub</a>
-    <section class="auth-card" aria-labelledby="auth-heading">
+    <section class="registry">
+        <p class="eyebrow">GameHub registry</p>
+        <h1>Your roster.<br>Your records.</h1>
+        <p class="intro">Keep players, teams, and career histories organized in one reliable source.</p>
+        <div class="features"><div>Player registry<small>Track pro player profiles</small></div>
+        <div>Team management<small>Maintain your team directory</small></div></div>
+    </section>
+    <section class="auth-card panel" aria-labelledby="auth-heading">
         <div id="auth-signed-out">
-            <h2 id="auth-heading">Sign in</h2>
+            <small class="accent" id="auth-kicker">Welcome back</small>
+            <h2 id="auth-heading">Sign in to GameHub</h2>
+            <p id="auth-intro">Access your player and team registry.</p>
             <form id="auth-form">
-                <label for="auth-email">Email</label>
-                <input id="auth-email" type="email" autocomplete="email" maxlength="254" required>
+                <label for="auth-email">Email address</label>
+                <input id="auth-email" placeholder="you@example.com" type="email" autocomplete="email" maxlength="254" required>
                 <label for="auth-password">Password</label>
                 <input id="auth-password" type="password" autocomplete="current-password" maxlength="72" required>
                 <div class="auth-actions">
-                    <button type="submit">Sign in</button>
-                    <button type="button" id="register-button" class="secondary-button">Create account</button>
+                    <button type="submit" id="auth-submit">Sign in →</button>
                 </div>
             </form>
+            <p class="switch"><span id="switch-label">Don’t have an account?</span> <button type="button" class="text-button" id="register-button">Create account</button></p>
         </div>
         <div id="auth-signed-in" hidden>
             <p>Signed in as <strong id="auth-user"></strong></p>

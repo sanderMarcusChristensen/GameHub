@@ -1,3 +1,4 @@
+
 package com.gamehub.entity.document;
 
 import java.time.LocalDateTime;
@@ -23,9 +24,53 @@ public class MatchDocument {
     private LocalDateTime scheduledAt;
     private LocalDateTime createdAt;
 
+    private List<MatchStatusHistory> statusHistory;
     private List<Game> games;
 
     public MatchDocument() {
+    }
+
+    public static class MatchStatusHistory {
+
+        private Long historyId;
+        private String oldStatus;
+        private String newStatus;
+        private LocalDateTime changedAt;
+
+        public MatchStatusHistory() {
+        }
+
+        public Long getHistoryId() {
+            return historyId;
+        }
+
+        public void setHistoryId(Long historyId) {
+            this.historyId = historyId;
+        }
+
+        public String getOldStatus() {
+            return oldStatus;
+        }
+
+        public void setOldStatus(String oldStatus) {
+            this.oldStatus = oldStatus;
+        }
+
+        public String getNewStatus() {
+            return newStatus;
+        }
+
+        public void setNewStatus(String newStatus) {
+            this.newStatus = newStatus;
+        }
+
+        public LocalDateTime getChangedAt() {
+            return changedAt;
+        }
+
+        public void setChangedAt(LocalDateTime changedAt) {
+            this.changedAt = changedAt;
+        }
     }
 
     public static class Game {
@@ -231,6 +276,14 @@ public class MatchDocument {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public List<MatchStatusHistory> getStatusHistory() {
+        return statusHistory;
+    }
+
+    public void setStatusHistory(List<MatchStatusHistory> statusHistory) {
+        this.statusHistory = statusHistory;
     }
 
     public List<Game> getGames() {
