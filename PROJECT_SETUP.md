@@ -87,7 +87,7 @@ Run the commands in your operating system's block **one at a time**.
 ### Windows (PowerShell)
 
 ```powershell
-.\mvnw.cmd spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration"
+.\mvnw.cmd spring-boot:run "-Dspring-boot.run.profiles=migrate-neo4j"
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication" "-Dspring-boot.run.profiles=migrate-mongo"
 .\mvnw.cmd spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication"
 ```
@@ -95,7 +95,7 @@ Run the commands in your operating system's block **one at a time**.
 ### macOS (Terminal)
 
 ```sh
-./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration"
+./mvnw spring-boot:run "-Dspring-boot.run.profiles=migrate-neo4j"
 ./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication" "-Dspring-boot.run.profiles=migrate-mongo"
 ./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication"
 ```
@@ -103,7 +103,7 @@ Run the commands in your operating system's block **one at a time**.
 ### Linux (Terminal)
 
 ```sh
-./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration"
+./mvnw spring-boot:run "-Dspring-boot.run.profiles=migrate-neo4j"
 ./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication" "-Dspring-boot.run.profiles=migrate-mongo"
 ./mvnw spring-boot:run "-Dspring-boot.run.main-class=com.gamehub.GameHubApplication"
 ```

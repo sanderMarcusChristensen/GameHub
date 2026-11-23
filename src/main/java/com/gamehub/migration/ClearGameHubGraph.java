@@ -2,15 +2,23 @@ package com.gamehub.migration;
 
 import com.gamehub.mapper.graph.GraphNodeMapping;
 import com.gamehub.mapper.graph.GraphRelationshipMapping;
-import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
-import org.neo4j.driver.AuthTokens;
-import org.neo4j.driver.GraphDatabase;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.builder.SpringApplicationBuilder;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.neo4j.autoconfigure.Neo4jProperties;
+import org.springframework.context.annotation.Profile;
+import org.springframework.data.neo4j.core.Neo4jClient;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-/** Preview or clear the mapped GameHub graph in the migration's Neo4j database. */
-public class ClearGameHubGraph {
+@Component
+@Profile("clear-neo4j & !migrate-neo4j")
+@RequiredArgsConstructor
+public class ClearGameHubGraph implements CommandLineRunner {
+    private static final Logger logger = LoggerFactory.getLogger(ClearGameHubGraph.class);
     private static final String NODES =
             "MATCH (n) WHERE any(label IN labels(n) WHERE label IN $labels) ";
     private static final String RELATIONSHIPS = """
@@ -19,32 +27,40 @@ public class ClearGameHubGraph {
               AND any(label IN labels(b) WHERE label IN $labels)
             """;
 
-    public static void main(String[] args) {
-        boolean confirmed = Arrays.asList(args).equals(java.util.List.of("--confirm-clear"));
-        try (var context = new SpringApplicationBuilder(ClearGameHubGraph.class)
-                .web(WebApplicationType.NONE).run(args)) {
-            var config = context.getEnvironment();
-            String uri = config.getRequiredProperty("spring.neo4j.uri");
-            var auth = AuthTokens.basic(config.getRequiredProperty("spring.neo4j.authentication.username"),
-                    config.getRequiredProperty("spring.neo4j.authentication.password"));
-            var labels = GraphNodeMapping.ALL.stream().map(GraphNodeMapping::label).toList();
-            var types = GraphRelationshipMapping.ALL.stream().map(GraphRelationshipMapping::type).distinct().toList();
-            var params = Map.<String, Object>of("labels", labels, "types", types);
-            try (var driver = GraphDatabase.driver(uri, auth);
-                 var session = driver.session();
-                 var tx = session.beginTransaction()) {
-                if (!confirmed) {
-                    long nodes = tx.run(NODES + "RETURN count(n)", params).single().get(0).asLong();
-                    long relationships = tx.run(RELATIONSHIPS + "RETURN count(r)", params).single().get(0).asLong();
-                    System.out.printf("%s: %d nodes and %d relationships. Labels: %s%n", uri, nodes, relationships, labels);
-                    return;
-                }
-                int relationships = tx.run(RELATIONSHIPS + "DELETE r", params).consume().counters().relationshipsDeleted();
-                // Plain DELETE rolls back the cleanup if a node still has an unrelated relationship.
-                int nodes = tx.run(NODES + "DELETE n", params).consume().counters().nodesDeleted();
-                tx.commit();
-                System.out.printf("Deleted %d GameHub nodes and %d relationships.%n", nodes, relationships);
-            }
+    private final Neo4jClient neo4j;
+    private final Neo4jProperties config;
+
+    @Override
+    @Transactional
+    public void run(String... args) {
+        List<String> labels = GraphNodeMapping.ALL.stream()
+                .map(GraphNodeMapping::label)
+                .toList();
+        List<String> types = GraphRelationshipMapping.ALL.stream()
+                .map(GraphRelationshipMapping::type)
+                .distinct()
+                .toList();
+        Map<String, Object> parameters = Map.of("labels", labels, "types", types);
+
+        boolean confirmed = args.length == 1 && "--confirm-clear".equals(args[0]);
+        if (confirmed) {
+            clearGraph(parameters);
+        } else {
+            long nodes = count(NODES + "RETURN count(n)", parameters);
+            long relationships = count(RELATIONSHIPS + "RETURN count(r)", parameters);
+            logger.info("{}: {} nodes and {} relationships. Labels: {}", config.getUri(), nodes, relationships, labels);
         }
+    }
+
+    private void clearGraph(Map<String, Object> parameters) {
+        int relationships = neo4j.query(RELATIONSHIPS + "DELETE r").bindAll(parameters)
+                .run().counters().relationshipsDeleted();
+        // DELETE fails and rolls back both queries if a node still has an unrelated relationship.
+        int nodes = neo4j.query(NODES + "DELETE n").bindAll(parameters).run().counters().nodesDeleted();
+        logger.info("Deleted {} GameHub nodes and {} relationships.", nodes, relationships);
+    }
+
+    private long count(String query, Map<String, Object> parameters) {
+        return neo4j.query(query).bindAll(parameters).fetchAs(Long.class).one().orElseThrow();
     }
 }

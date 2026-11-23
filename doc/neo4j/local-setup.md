@@ -14,10 +14,10 @@ Brug gruppens eksisterende MySQL-database med dummydata. Ved lokal Docker Compos
 ## 2. Importér
 
 ```sh
-./mvnw spring-boot:run -Dspring-boot.run.main-class=com.gamehub.migration.GraphMigration
+./mvnw spring-boot:run -Dspring-boot.run.profiles=migrate-neo4j
 ```
 
-Ved succes vises antal verificerede rækker pr. tabel og til sidst `Neo4j migration completed and verified.`. Hvis en kørsel fx melder `Player contains unexpected nodes`, findes der flere Player-noder i målet end forventet fra kilden. Kontrollér de eksisterende noder i Browser. Importens dataændringer er rullet tilbage.
+Ved succes vises antal verificerede rækker pr. tabel og til sidst `Neo4j migration completed and verified.`. Hvis en kørsel fx melder `Player: expected 12 matches, found 13`, findes der flere Player-noder i målet end forventet fra kilden. Kontrollér de eksisterende noder i Browser. Importens dataændringer er rullet tilbage.
 
 ## 3. Se resultatet
 

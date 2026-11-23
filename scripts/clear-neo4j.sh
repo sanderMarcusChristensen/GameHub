@@ -3,7 +3,7 @@ set -eu
 
 cd "$(dirname "$0")/.."
 run_clear() {
-    ./mvnw -q spring-boot:run -Dspring-boot.run.main-class=com.gamehub.migration.ClearGameHubGraph "$@"
+    ./mvnw -q spring-boot:run -Dspring-boot.run.profiles=clear-neo4j "$@"
 }
 
 run_clear
