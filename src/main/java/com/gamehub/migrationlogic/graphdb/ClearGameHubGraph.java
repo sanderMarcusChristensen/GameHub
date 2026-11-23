@@ -1,13 +1,15 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
-import com.gamehub.mapper.graph.GraphNodeMapping;
-import com.gamehub.mapper.graph.GraphRelationshipMapping;
 import java.util.Arrays;
 import java.util.Map;
+
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.GraphDatabase;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphNodeMapping;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphRelationshipMapping;
 
 /** Preview or clear the mapped GameHub graph in the migration's Neo4j database. */
 public class ClearGameHubGraph {

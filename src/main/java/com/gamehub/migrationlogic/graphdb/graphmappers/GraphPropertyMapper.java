@@ -1,11 +1,12 @@
-package com.gamehub.mapper.graph;
+package com.gamehub.migrationlogic.graphdb.graphmappers;
 
-import com.gamehub.migration.MySqlSnapshot;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.gamehub.migrationlogic.graphdb.MySqlSnapshot;
 
 /** Converts snapshot values to the property types stored in Neo4j. */
 public final class GraphPropertyMapper {

@@ -1,4 +1,4 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
