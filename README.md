@@ -121,6 +121,39 @@ Invoke-RestMethod "$baseUrl/api/auth/logout" -Method Post `
 
 Registration only creates `USER` accounts. Admin roles must be assigned separately.
 
+## MySQL users and privileges
+
+Add the following passwords to `.env`:
+
+```dotenv
+DB_PASSWORD=<gamehub_app password>
+DB_PASSWORD_ROOT=<MySQL root password>
+DB_ADMIN_PASSWORD=<gamehub_admin password>
+```
+
+From the project root, run:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\setup_mysql_users.ps1
+```
+
+Create two MySQL Workbench connections: `gamehub_app` and `gamehub_admin`, using
+the passwords from `.env`. Use `root` only to run setup scripts.
+
+Test `gamehub_app`:
+
+```sql
+USE `gameHub`;
+SELECT * FROM app_users LIMIT 5;
+CREATE TABLE privilege_test (id INT);
+```
+
+The `SELECT` should succeed and `CREATE TABLE` should be denied.
+
+Spring Boot should use `gamehub_app`; use `gamehub_admin` or `root` only for
+maintenance.
+
 ## Project layout
 
 ```text
