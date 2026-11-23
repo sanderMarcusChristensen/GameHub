@@ -12,7 +12,7 @@ source_mysql() {
 # Pause application writes until the source snapshot and dump have both finished.
 ./mvnw -q -DskipTests compile dependency:build-classpath "-Dmdep.outputFile=$directory/classpath"
 manifest() {
-  java -cp "target/classes:$(cat "$directory/classpath")" com.gamehub.migration.BackupSnapshotManifest "$1"
+  java -cp "target/classes:$(cat "$directory/classpath")" com.gamehub.migrationlogic.graphdb.BackupSnapshotManifest "$1"
 }
 source_port=$(docker compose port gamehub_db 3306)
 MYSQL_PWD=$(docker compose exec -T gamehub_db printenv MYSQL_ROOT_PASSWORD) manifest "${source_port##*:}" > "$directory/source.tsv"

@@ -1,4 +1,4 @@
-package com.gamehub.migrationlogic.documentmappers;
+package com.gamehub.migrationlogic.documentdb.documentmappers;
 
 import java.util.List;
 

@@ -2,9 +2,11 @@ package com.gamehub.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,20 +23,33 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http, SecurityContextRepository securityContextRepository)
             throws Exception {
         http
-        /*
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/cito/**", "/api/auth/csrf", "/api/auth/register", "/api/auth/login")
+                        .requestMatchers("/api/auth/csrf", "/api/auth/register", "/api/auth/login")
                         .permitAll()
+                        .requestMatchers("/api/auth/me", "/api/auth/logout")
+                        .authenticated()
+
+                        .requestMatchers(HttpMethod.GET, "/api/cito/**", "/api/graph/**")
+                        .permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/players/**", "/api/teams/**", "/api/tournaments/**")
+                        .permitAll()
+
+                        .requestMatchers(HttpMethod.POST, "/api/players/**", "/api/teams/**",
+                                "/api/tournaments/**", "/api/matches/**")
+                        .hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/api/players/**", "/api/teams/**",
+                                "/api/tournaments/**", "/api/matches/**")
+                        .hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/players/**", "/api/teams/**",
+                                "/api/tournaments/**", "/api/matches/**")
+                        .hasRole("ADMIN")
+
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .securityContext(context -> context.securityContextRepository(securityContextRepository));
-        */
-       /*JUST FOR TESTING DELETE AFTER ENDPOINT WORKS!!!! */
-       .authorizeHttpRequests(authorize -> authorize
-        .requestMatchers("/api/**").permitAll()
-        .anyRequest().permitAll());
+
         return http.build();
     }
 

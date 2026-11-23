@@ -1,7 +1,7 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
-import com.gamehub.mapper.graph.GraphNodeMapping;
-import com.gamehub.mapper.graph.GraphRelationshipMapping;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphNodeMapping;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphRelationshipMapping;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;

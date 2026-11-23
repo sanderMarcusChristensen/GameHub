@@ -1,5 +1,5 @@
 
-package com.gamehub.migrationlogic;
+package com.gamehub.migrationlogic.documentdb;
 
 import java.util.List;
 
@@ -33,12 +33,12 @@ import com.gamehub.entity.document.PlayerDocument;
 import com.gamehub.entity.document.TeamDocument;
 import com.gamehub.entity.document.TournamentDocument;
 import com.gamehub.entity.document.UserDocument;
-import com.gamehub.migrationlogic.documentmappers.ChampionDocumentMapper;
-import com.gamehub.migrationlogic.documentmappers.MatchDocumentMapper;
-import com.gamehub.migrationlogic.documentmappers.PlayerDocumentMapper;
-import com.gamehub.migrationlogic.documentmappers.TeamDocumentMapper;
-import com.gamehub.migrationlogic.documentmappers.TournamentDocumentMapper;
-import com.gamehub.migrationlogic.documentmappers.UserDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.ChampionDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.MatchDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.PlayerDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.TeamDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.TournamentDocumentMapper;
+import com.gamehub.migrationlogic.documentdb.documentmappers.UserDocumentMapper;
 import com.gamehub.repository.AppUserRepository;
 import com.gamehub.repository.ChampionRepository;
 import com.gamehub.repository.GameRepository;

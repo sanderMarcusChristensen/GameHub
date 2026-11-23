@@ -1,6 +1,6 @@
-package com.gamehub.migration;
+package com.gamehub.migrationlogic.graphdb;
 
-import com.gamehub.mapper.graph.GraphPropertyMapper;
+import com.gamehub.migrationlogic.graphdb.graphmappers.GraphPropertyMapper;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.sql.DataSource;
