@@ -1,6 +1,6 @@
 package com.gamehub.service;
 
-import com.gamehub.dto.PlayerFilterDto;
+import com.gamehub.dto.PlayerFilter;
 import com.gamehub.dto.PlayerRequest;
 import com.gamehub.dto.PlayerResponse;
 import com.gamehub.entity.Player;
@@ -37,7 +37,7 @@ public class PlayerService {
         return playerMapper.toResponse(findById(id));
     }
 
-    public Page<PlayerResponse> getAll(PlayerFilterDto filter, Pageable pageable
+    public Page<PlayerResponse> getAll(PlayerFilter filter, Pageable pageable
     ) {
         Specification<Player> spec = Specification.unrestricted();
 

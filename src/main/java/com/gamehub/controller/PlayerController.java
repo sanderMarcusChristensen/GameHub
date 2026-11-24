@@ -1,6 +1,6 @@
 package com.gamehub.controller;
 
-import com.gamehub.dto.PlayerFilterDto;
+import com.gamehub.dto.PlayerFilter;
 import com.gamehub.dto.PlayerRequest;
 import com.gamehub.dto.PlayerResponse;
 import com.gamehub.service.PlayerService;
@@ -31,7 +31,7 @@ public class PlayerController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<PlayerResponse>> getAll(@ModelAttribute PlayerFilterDto filter, @PageableDefault(size = 20, sort = "id") Pageable pageable) {
+    public ResponseEntity<Page<PlayerResponse>> getAll(@ModelAttribute PlayerFilter filter, @PageableDefault(size = 20, sort = "id") Pageable pageable) {
         return ResponseEntity.ok(playerService.getAll(filter, pageable));
     }
 

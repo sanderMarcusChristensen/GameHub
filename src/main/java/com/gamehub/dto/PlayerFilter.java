@@ -1,5 +1,5 @@
 package com.gamehub.dto;
 
-public record PlayerFilterDto(
+public record PlayerFilter(
         String nickname
 ) {}
