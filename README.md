@@ -75,7 +75,7 @@ $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 
 ### Registration
 
-Paste this to create a `USER` account. Choose a unique email and a password with
+There are 2 ways to register and login, either use the apps site to insert your registration/login credentials or paste this to create a `USER` account. Choose a unique email and a password with
 at least 8 characters.
 
 ```powershell
@@ -347,3 +347,27 @@ docker compose exec mongodb mongosh gamehub_documents --username admin --authent
 ```
 
 You can replace `players` in the query with `teams`, `champions`, `tournaments`, `matches` or `users` to check the other collections.
+
+## Database Backup and Restore
+
+The database can be backed up and verified/restored using the provided scripts. Run these commands from the project root directory using Git Bash.
+
+1. Create a database backup
+
+Run the following command to create a backup of the database:
+
+```bash
+$ bash scripts/backup-mysql.sh
+```
+
+The script creates a backup of the database and stores it in the backups directory.
+
+2. Verify and restore a backup
+To verify and test the restoration of a backup, run:
+```bash
+$ bash scripts/verify-backup.sh
+```
+
+The verification script automatically selects the newest backup from the backups directory and uses it to test the restore process.
+
+Both scripts should be run through Git Bash.
