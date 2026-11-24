@@ -34,6 +34,9 @@ https://citoapi.com/
 
 The API key must never be committed to GitHub or shared publicly.
 
+The backend exposes a passthrough endpoint for this API:
+`GET http://localhost:8080/api/cito/lol/players/{playerIdOrSlug}/stats`.
+
 ## Local setup
 
 Open the `GameHub` directory as your editor workspace. It contains `pom.xml`.
@@ -161,34 +164,47 @@ columns, while `SELECT id, role FROM app_users` succeeds.
 
 ```text
 GameHub/
-├── pom.xml
-├── mvnw / mvnw.cmd
-├── .mvn/wrapper/
-├── .env.example
+├── docker-compose.yml        # MySQL, MongoDB and Neo4j for local development
+├── data/database/            # SQL schema, seed data, triggers, events, views,
+│                             # users/privileges and test queries
+├── scripts/                  # Backup, restore verification and Neo4j reset scripts
+├── doc/                      # Assignment briefs, report, ERDs and diagrams
 └── src/
-    ├── main/
-    │   ├── java/com/gamehub/
-    │   │   ├── GameHubApplication.java
-    │   │   ├── controller/  # Incoming HTTP endpoints
-    │   │   ├── client/      # Outgoing API calls (Cito, future Riot integration)
-    │   │   └── dao/         # Database access objects
-    │   └── resources/
-    │       └── application.properties
-    └── test/java/com/gamehub/
-        └── GameHubApplicationTests.java
+    ├── main/java/com/gamehub/
+    │   ├── GameHubApplication.java
+    │   ├── controller/       # HTTP endpoints
+    │   ├── dto/              # Request/response records exchanged over the API
+    │   ├── service/          # Business logic and transaction boundaries
+    │   ├── mapper/           # Entity <-> DTO conversion
+    │   ├── specification/    # JPA filtering criteria
+    │   ├── security/         # Spring Security configuration
+    │   ├── exception/        # Custom exceptions and the global handler
+    │   ├── enums/            # Enums shared by all three data models
+    │   │
+    │   ├── entity/           # Domain models, one subpackage per database
+    │   │   ├── jpa/          #   MySQL @Entity classes and composite keys
+    │   │   ├── document/     #   MongoDB @Document classes
+    │   │   └── graph/        #   Neo4j @Node records
+    │   │
+    │   ├── repository/       # Data access, mirrors entity/ exactly
+    │   │   ├── jpa/          #   Spring Data JPA repositories
+    │   │   ├── document/     #   Spring Data MongoDB repositories
+    │   │   └── graph/        #   Spring Data Neo4j repositories and Cypher queries
+    │   │
+    │   └── migrationlogic/   # One-time RDBMS -> MongoDB / Neo4j migration
+    │       ├── documentdb/   #   Migrator and document mappers
+    │       └── graphdb/      #   Migrator and graph mappers
+    └── test/java/com/gamehub/  # Unit and integration tests
 ```
 
-`dao` stands for Data Access Object. The package is ready for database classes;
-no database driver or persistence configuration has been selected yet.
-Add a `service` package when business logic needs to coordinate clients and DAOs.
+`entity/` and `repository/` use the same three-way split, so each database
+solution occupies one folder per layer. The web frontend lives in
+`src/main/resources/static` and is described under [Frontend](#frontend).
 
-Maven separates application code (`src/main/java`) from tests (`src/test/java`).
-The `com/gamehub` folders match the Java package `com.gamehub`, so keep them.
-As tests are added, mirror the package of the class under test, such as
-`src/test/java/com/gamehub/client`. Editors can display these packages compactly.
-
-The existing endpoint is:
-`GET http://localhost:8080/api/cito/lol/players/faker/stats`.
+Migration code is kept in `migrationlogic/` and only runs under the
+`migrate-mongo` and `migrate-neo4j` profiles, so it never runs during normal
+startup. See [MongoDB migration](#mongodb-migration) and
+[doc/neo4j/README.md](doc/neo4j/README.md) for the Neo4j equivalent.
 
 ## Frontend
 
@@ -202,7 +218,7 @@ After starting Spring Boot, open `http://localhost:8080/` in a browser.
 
 ## Additional backend functionality
 
-The backend also includes relational database functionality for managing players, teams, tournaments and matches. MySQL is used as the relational database, with Spring Data JPA repositories and services handling database access. The package description in the earlier Project layout section reflects the initial project structure; the current code also uses `repository`, `documentrepository`, `graphrepository`, `service`, `migration` and `migrationlogic` packages for database access and migration work.
+The backend includes relational database functionality for managing players, teams, tournaments and matches. MySQL is the relational database, with Spring Data JPA repositories and services handling database access. MongoDB and Neo4j use the `document` and `graph` packages shown in [Project layout](#project-layout); their data is loaded by the migrator.
 
 ### Player endpoints
 
