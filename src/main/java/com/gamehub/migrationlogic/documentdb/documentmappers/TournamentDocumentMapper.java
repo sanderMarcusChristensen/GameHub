@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.Tournament;
-import com.gamehub.entity.TournamentTeam;
 import com.gamehub.entity.document.TournamentDocument;
+import com.gamehub.entity.jpa.Tournament;
+import com.gamehub.entity.jpa.TournamentTeam;
 
 @Component
 public class TournamentDocumentMapper {

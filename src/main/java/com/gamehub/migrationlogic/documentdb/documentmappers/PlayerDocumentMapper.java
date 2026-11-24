@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.Player;
-import com.gamehub.entity.PlayerStatistics;
-import com.gamehub.entity.TeamPlayer;
 import com.gamehub.entity.document.PlayerDocument;
+import com.gamehub.entity.jpa.Player;
+import com.gamehub.entity.jpa.PlayerStatistics;
+import com.gamehub.entity.jpa.TeamPlayer;
 
 @Component
 public class PlayerDocumentMapper {

@@ -2,11 +2,12 @@ package com.gamehub.service;
 
 import com.gamehub.dto.TeamDto;
 import com.gamehub.dto.TeamRequestDto;
-import com.gamehub.entity.Team;
+import com.gamehub.entity.jpa.Team;
 import com.gamehub.exception.ResourceConflictException;
 import com.gamehub.exception.ResourceNotFoundException;
 import com.gamehub.mapper.TeamMapper;
-import com.gamehub.repository.TeamRepository;
+import com.gamehub.repository.jpa.TeamRepository;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 

@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.gamehub.entity.AppUser;
-import com.gamehub.repository.AppUserRepository;
+import com.gamehub.entity.jpa.AppUser;
+import com.gamehub.repository.jpa.AppUserRepository;
 
 /** Loads login accounts from the database for Spring Security. */
 @Service

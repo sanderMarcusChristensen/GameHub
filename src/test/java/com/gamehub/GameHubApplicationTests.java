@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.gamehub.repository.AppUserRepository;
+import com.gamehub.repository.jpa.AppUserRepository;
 
 /** Checks application startup, account lookup, and password hashing. */
 @SpringBootTest(properties = "cito.api-key=test-key")

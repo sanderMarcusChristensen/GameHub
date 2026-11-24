@@ -16,9 +16,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.gamehub.entity.AppUser;
-import com.gamehub.entity.UserRole;
-import com.gamehub.repository.AppUserRepository;
+import com.gamehub.entity.jpa.AppUser;
+import com.gamehub.enums.UserRole;
+import com.gamehub.repository.jpa.AppUserRepository;
 
 @ExtendWith(MockitoExtension.class)
 class RegistrationServiceTests {

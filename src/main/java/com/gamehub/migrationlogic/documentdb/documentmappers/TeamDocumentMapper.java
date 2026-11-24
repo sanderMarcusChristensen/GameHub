@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.Team;
 import com.gamehub.entity.document.TeamDocument;
+import com.gamehub.entity.jpa.Team;
 
 @Component
 public class TeamDocumentMapper {

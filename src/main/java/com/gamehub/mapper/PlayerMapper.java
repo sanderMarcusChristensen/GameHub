@@ -2,7 +2,8 @@ package com.gamehub.mapper;
 
 import com.gamehub.dto.PlayerRequest;
 import com.gamehub.dto.PlayerResponse;
-import com.gamehub.entity.Player;
+import com.gamehub.entity.jpa.Player;
+
 import org.springframework.stereotype.Component;
 
 @Component
