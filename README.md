@@ -39,7 +39,7 @@ The API key must never be committed to GitHub or shared publicly.
 Open the `GameHub` directory as your editor workspace. It contains `pom.xml`.
 Install JDK 21 and use the included Maven wrapper; a separate Maven install is not required.
 
-Copy `.env.example` to `.env` in this directory and fill in your API keys and local MySQL password:
+Copy `.env.example` to `.env` in this directory and fill in your API keys and the three MySQL passwords. For the full Docker-based walkthrough, see [PROJECT_SETUP.md](PROJECT_SETUP.md).
 
 ```sh
 cp .env.example .env
@@ -50,8 +50,9 @@ On Windows, use `mvnw.cmd` instead of `./mvnw`.
 Spring Boot loads the root `.env` as a properties file. Use plain `KEY=value` lines
 without quotes or `export`. Environment variables can also supply the keys.
 The current Cito endpoint requires `CITO_API_KEY`; the Riot key is for future integration.
-Set `DB_PASSWORD` to the password for the local MySQL account in `DB_USERNAME`.
-The datasource defaults to `gameHub` on `127.0.0.1:3306`; Hibernate validates the
+The backend connects as `MYSQL_APP_USERNAME` with `MYSQL_APP_PASSWORD`. The
+datasource points at `MYSQL_DATABASE` on `MYSQL_HOST:MYSQL_PORT`, which defaults to `gameHub`
+on `127.0.0.1:3307` with the supplied Compose setup. Hibernate validates the
 existing tables and does not create or modify them. `.env` is ignored by Git.
 
 Run tests with:
@@ -125,23 +126,24 @@ Registration only creates `USER` accounts. Admin roles must be assigned separate
 
 ## MySQL users and privileges
 
-Add the following passwords to `.env`:
+[06_users_and_privileges.sql](data/database/init/06_users_and_privileges.sql)
+creates four accounts on the first start of a fresh MySQL volume:
 
-```dotenv
-DB_PASSWORD=<gamehub_app password>
-DB_PASSWORD_ROOT=<MySQL root password>
-DB_ADMIN_PASSWORD=<gamehub_admin password>
-```
+| Account | Privileges |
+| --- | --- |
+| `gamehub_app` | SELECT, INSERT, UPDATE, DELETE and EXECUTE on `gameHub` — the backend account, limited to what the application needs. |
+| `gamehub_admin` | ALL PRIVILEGES on `gameHub`. |
+| `gamehub_readonly` | SELECT on every table and view. |
+| `gamehub_restricted` | SELECT on domain tables and views; only `id`, `role`, `is_enabled` and `created_at` from `app_users`, so `email` and `password_hash` are hidden. |
 
-From the project root, run:
+The passwords are fixed local demo values mirrored in `.env.example`; the MySQL
+image does not expand environment variables in `.sql` files, so both files must
+be updated together. Only `MYSQL_APP_*` is used by the backend. Set
+`MYSQL_ROOT_PASSWORD` to your own value.
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\setup_mysql_users.ps1
-```
-
-Create two MySQL Workbench connections: `gamehub_app` and `gamehub_admin`, using
-the passwords from `.env`. Use `root` only to run setup scripts.
+The accounts are created only when the volume is empty. To apply changes, remove
+the `gamehub_gamehub_db_data` volume (this deletes the local MySQL data) or run
+`ALTER USER` inside the container. Use `root` only for maintenance.
 
 Test `gamehub_app`:
 
@@ -151,10 +153,9 @@ SELECT * FROM app_users LIMIT 5;
 CREATE TABLE privilege_test (id INT);
 ```
 
-The `SELECT` should succeed and `CREATE TABLE` should be denied.
-
-Spring Boot should use `gamehub_app`; use `gamehub_admin` or `root` only for
-maintenance.
+The `SELECT` should succeed and `CREATE TABLE` should be denied. As
+`gamehub_restricted`, `SELECT * FROM app_users` should fail on the hidden
+columns, while `SELECT id, role FROM app_users` succeeds.
 
 ## Project layout
 
@@ -201,11 +202,7 @@ After starting Spring Boot, open `http://localhost:8080/` in a browser.
 
 ## Additional backend functionality
 
-## Additional backend functionality
-
 The backend also includes relational database functionality for managing players, teams, tournaments and matches. MySQL is used as the relational database, with Spring Data JPA repositories and services handling database access. The package description in the earlier Project layout section reflects the initial project structure; the current code also uses `repository`, `documentrepository`, `graphrepository`, `service`, `migration` and `migrationlogic` packages for database access and migration work.
-
-The current Docker Compose configuration maps MySQL to host port `3307` (`3307:3306`). When using the supplied Docker Compose setup, set `DB_PORT=3307` in `.env`; MySQL still listens on port `3306` inside the container.
 
 ### Player endpoints
 
