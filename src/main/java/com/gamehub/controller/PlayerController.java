@@ -1,7 +1,8 @@
 package com.gamehub.controller;
 
-import com.gamehub.dto.PlayerDto;
 import com.gamehub.dto.PlayerFilterDto;
+import com.gamehub.dto.PlayerRequest;
+import com.gamehub.dto.PlayerResponse;
 import com.gamehub.service.PlayerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,23 +21,23 @@ public class PlayerController {
     private final PlayerService playerService;
 
     @PostMapping
-    public ResponseEntity<PlayerDto> create(@Valid @RequestBody PlayerDto dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(playerService.create(dto));
+    public ResponseEntity<PlayerResponse> create(@Valid @RequestBody PlayerRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(playerService.create(request));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PlayerDto> getById(@PathVariable Long id) {
+    public ResponseEntity<PlayerResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(playerService.getById(id));
     }
 
     @GetMapping
-    public ResponseEntity<Page<PlayerDto>> getAll(@ModelAttribute PlayerFilterDto filter, @PageableDefault(size = 20, sort = "id") Pageable pageable) {
+    public ResponseEntity<Page<PlayerResponse>> getAll(@ModelAttribute PlayerFilterDto filter, @PageableDefault(size = 20, sort = "id") Pageable pageable) {
         return ResponseEntity.ok(playerService.getAll(filter, pageable));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PlayerDto> update(@PathVariable Long id, @Valid @RequestBody PlayerDto dto) {
-        return ResponseEntity.ok(playerService.update(id, dto));
+    public ResponseEntity<PlayerResponse> update(@PathVariable Long id, @Valid @RequestBody PlayerRequest request) {
+        return ResponseEntity.ok(playerService.update(id, request));
     }
 
     @DeleteMapping("/{id}")
