@@ -350,3 +350,20 @@ docker compose exec mongodb mongosh gamehub_documents --username admin --authent
 ```
 
 You can replace `players` in the query with `teams`, `champions`, `tournaments`, `matches` or `users` to check the other collections.
+
+## Ask the AI coach
+
+1. Install and start [Ollama](https://ollama.com/), then download a model, for example `ollama pull qwen3:8b`. Use `ollama list` to see installed models.
+2. Add these lines to `.env`, using the name of your installed model:
+
+   ```properties
+   AI_ENABLED=true
+   OLLAMA_BASE_URL=http://localhost:11434
+   OLLAMA_MODEL=qwen3:8b
+   ```
+
+3. Start the databases with `docker compose up -d` and start GameHub with `./mvnw spring-boot:run`. Open the website and ask about a player stored in MySQL.
+
+For an existing MySQL database, run `data/database/init/07_player_ai_analysis.sql` once to create the table for saved answers. Docker runs initialization scripts automatically when creating a new MySQL volume.
+
+See [AI integration files](src/main/java/com/gamehub/ai_integration/ai-integration.md) and the [AI diagrams](doc/diagrams%20-%20files/gamehub-ai-integration.drawio).

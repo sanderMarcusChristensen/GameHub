@@ -1,0 +1,296 @@
+<mxfile host="65bd71144e">
+    <diagram name="AI flow" id="0">
+        <mxGraphModel dx="1535" dy="1087" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1140" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=30;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="AI coach: question to saved answer" vertex="1">
+                    <mxGeometry height="48" width="1450" x="55" y="35" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="The current MySQL and Ollama flow" vertex="1">
+                    <mxGeometry height="32" width="1450" x="55" y="88" as="geometry"/>
+                </mxCell>
+                <mxCell id="fan" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="320" x="55" y="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="fan-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Fan question" vertex="1">
+                    <mxGeometry height="32" width="296" x="67" y="177" as="geometry"/>
+                </mxCell>
+                <mxCell id="fan-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Example: “Compare Wolf to his team”&#xa;Browser sends POST /ai/chat" vertex="1">
+                    <mxGeometry height="85" width="296" x="67" y="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="match" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="320" x="445" y="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="match-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Find the player" vertex="1">
+                    <mxGeometry height="32" width="296" x="457" y="177" as="geometry"/>
+                </mxCell>
+                <mxCell id="match-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="SQL finds nickname candidates; Java checks complete names in the question" vertex="1">
+                    <mxGeometry height="85" width="296" x="457" y="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="team" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="320" x="835" y="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="team-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Find the active team" vertex="1">
+                    <mxGeometry height="32" width="296" x="847" y="177" as="geometry"/>
+                </mxCell>
+                <mxCell id="team-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Query team_players for the player&#xa;(left_at IS NULL)" vertex="1">
+                    <mxGeometry height="85" width="296" x="847" y="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="stats" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#eff6ff;strokeColor=#93b4dc;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="320" x="1225" y="165" as="geometry"/>
+                </mxCell>
+                <mxCell id="stats-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Calculate statistics" vertex="1">
+                    <mxGeometry height="32" width="296" x="1237" y="177" as="geometry"/>
+                </mxCell>
+                <mxCell id="stats-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="SQL JOIN, AVG and COUNT for player statistics&#xa;MySQL functions calculate team win rates" vertex="1">
+                    <mxGeometry height="85" width="296" x="1237" y="216" as="geometry"/>
+                </mxCell>
+                <mxCell id="l1" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="375" y="237" as="sourcePoint"/>
+                        <mxPoint x="445" y="237" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l2" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="765" y="237" as="sourcePoint"/>
+                        <mxPoint x="835" y="237" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l3" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1155" y="237" as="sourcePoint"/>
+                        <mxPoint x="1225" y="237" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="statsnote" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="we use stored procedures or functions:  fn_team_match_win_rate and fn_team_game_win_rate provide team win rates." vertex="1">
+                    <mxGeometry height="45" width="620" x="954" y="372" as="geometry"/>
+                </mxCell>
+                <mxCell id="files" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="175" width="320" x="1225" y="718" as="geometry"/>
+                </mxCell>
+                <mxCell id="files-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Prompt and context files" vertex="1">
+                    <mxGeometry height="32" width="296" x="1237" y="730" as="geometry"/>
+                </mxCell>
+                <mxCell id="files-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="player-analysis.txt: Traits, Tone, Target&#xa;player-analysis-task.txt: Task&#xa;general_leage_info.txt: game context" vertex="1">
+                    <mxGeometry height="115" width="296" x="1237" y="769" as="geometry"/>
+                </mxCell>
+                <mxCell id="prompt" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="175" width="320" x="1225" y="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="prompt-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Build messages" vertex="1">
+                    <mxGeometry height="32" width="296" x="1237" y="492" as="geometry"/>
+                </mxCell>
+                <mxCell id="prompt-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="System message: Traits, Tone, Target&#xa;User message: Task, context, question and team statistics" vertex="1">
+                    <mxGeometry height="115" width="296" x="1237" y="531" as="geometry"/>
+                </mxCell>
+                <mxCell id="l4" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1385" y="310" as="sourcePoint"/>
+                        <mxPoint x="1385" y="480" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="l5" edge="1" parent="1" source="files" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;exitX=0.542;exitY=0.005;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.542;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;" target="prompt">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1155" y="568" as="sourcePoint"/>
+                        <mxPoint x="1225" y="568" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ollama" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="175" width="320" x="634" y="467" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Ollama" vertex="1">
+                    <mxGeometry height="32" width="296" x="646" y="479" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Spring AI is a Java library that sends messages to Ollama. Ollama runs the local model." vertex="1">
+                    <mxGeometry height="115" width="296" x="646" y="518" as="geometry"/>
+                </mxCell>
+                <mxCell id="save" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#eff6ff;strokeColor=#93b4dc;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="175" width="320" x="55" y="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="save-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Save answer in MySQL" vertex="1">
+                    <mxGeometry height="32" width="296" x="67" y="492" as="geometry"/>
+                </mxCell>
+                <mxCell id="save-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="player_ai_analysis stores the latest question and answer for the player and team" vertex="1">
+                    <mxGeometry height="115" width="296" x="67" y="531" as="geometry"/>
+                </mxCell>
+                <mxCell id="l7" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="630.22" y="568" as="sourcePoint"/>
+                        <mxPoint x="375" y="568" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="response" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="320" x="55" y="795" as="geometry"/>
+                </mxCell>
+                <mxCell id="response-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Return to the fan" vertex="1">
+                    <mxGeometry height="32" width="296" x="67" y="807" as="geometry"/>
+                </mxCell>
+                <mxCell id="response-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Spring Boot returns the saved answer to the browser chat" vertex="1">
+                    <mxGeometry height="85" width="296" x="67" y="846" as="geometry"/>
+                </mxCell>
+                <mxCell id="l8" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="215" y="655" as="sourcePoint"/>
+                        <mxPoint x="215" y="795" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="rules" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="If the player or active team cannot be identified, the chat returns an error." vertex="1">
+                    <mxGeometry height="45" width="1050" x="445" y="805" as="geometry"/>
+                </mxCell>
+                <mxCell id="oE0VI9nFFEv38zh6b2v_-1" edge="1" parent="1" source="prompt" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1043" y="584" as="sourcePoint"/>
+                        <mxPoint x="959.2" y="563.72" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram name="Local setup" id="1">
+        <mxGraphModel grid="0" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1500" pageHeight="1020" background="#ffffff" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="host" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#f8fafc;strokeColor=#94a3b8;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="940" width="1460" x="20" y="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="host-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=30;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Developer&#39;s computer" vertex="1">
+                    <mxGeometry height="45" width="1200" x="55" y="43" as="geometry"/>
+                </mxCell>
+                <mxCell id="subtitle" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Local AI and database setup" vertex="1">
+                    <mxGeometry height="30" width="1100" x="55" y="91" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#eff6ff;strokeColor=#93b4dc;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="735" width="460" x="975" y="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="docker-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Docker Compose" vertex="1">
+                    <mxGeometry height="40" width="400" x="1005" y="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="120" width="270" x="70" y="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Web browser" vertex="1">
+                    <mxGeometry height="32" width="246" x="82" y="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="browser-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="GameHub website&#xa;Ask the AI coach" vertex="1">
+                    <mxGeometry height="60" width="246" x="82" y="276" as="geometry"/>
+                </mxCell>
+                <mxCell id="spring" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="120" width="320" x="420" y="225" as="geometry"/>
+                </mxCell>
+                <mxCell id="spring-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Spring Boot" vertex="1">
+                    <mxGeometry height="32" width="296" x="432" y="237" as="geometry"/>
+                </mxCell>
+                <mxCell id="spring-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="GameHub backend&#xa;Spring AI: Java library for Ollama" vertex="1">
+                    <mxGeometry height="60" width="296" x="432" y="276" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="130" width="320" x="420" y="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Ollama" vertex="1">
+                    <mxGeometry height="32" width="296" x="432" y="442" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Ollama runs the local model&#xa;Configured model · port 11434" vertex="1">
+                    <mxGeometry height="70" width="296" x="432" y="481" as="geometry"/>
+                </mxCell>
+                <mxCell id="config" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="145" width="270" x="70" y="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value=".env" vertex="1">
+                    <mxGeometry height="32" width="246" x="82" y="442" as="geometry"/>
+                </mxCell>
+                <mxCell id="config-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="AI_ENABLED&#xa;OLLAMA_BASE_URL&#xa;OLLAMA_MODEL" vertex="1">
+                    <mxGeometry height="85" width="246" x="82" y="481" as="geometry"/>
+                </mxCell>
+                <mxCell id="files" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#cbd5e1;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="130" width="320" x="420" y="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="files-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Prompt files" vertex="1">
+                    <mxGeometry height="32" width="296" x="432" y="682" as="geometry"/>
+                </mxCell>
+                <mxCell id="files-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Traits, Tone, Target and Task&#xa;General League information" vertex="1">
+                    <mxGeometry height="70" width="296" x="432" y="721" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#648bb5;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="165" width="370" x="1020" y="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="MySQL" vertex="1">
+                    <mxGeometry height="32" width="346" x="1032" y="262" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="gamehub_db · gameHub&#xa;Players, team stats and AI answers&#xa;Host port 3307 → container 3306" vertex="1">
+                    <mxGeometry height="105" width="346" x="1032" y="301" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#648bb5;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="110" width="370" x="1020" y="510" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="MongoDB" vertex="1">
+                    <mxGeometry height="32" width="346" x="1032" y="522" as="geometry"/>
+                </mxCell>
+                <mxCell id="mongo-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="gamehub_mongodb&#xa;Document database" vertex="1">
+                    <mxGeometry height="50" width="346" x="1032" y="561" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo" parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#648bb5;strokeWidth=2;" value="" vertex="1">
+                    <mxGeometry height="110" width="370" x="1020" y="670" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo-title" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20;fontColor=#0f172a;fontStyle=1;strokeColor=none;fillColor=none;spacing=0;" value="Neo4j" vertex="1">
+                    <mxGeometry height="32" width="346" x="1032" y="682" as="geometry"/>
+                </mxCell>
+                <mxCell id="neo-body" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="Graph database" vertex="1">
+                    <mxGeometry height="50" width="346" x="1032" y="721" as="geometry"/>
+                </mxCell>
+                <mxCell id="http" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="340" y="285" as="sourcePoint"/>
+                        <mxPoint x="420" y="285" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="http-label" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="HTTP" vertex="1">
+                    <mxGeometry height="24" width="70" x="345" y="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="ollama-line" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="580" y="345" as="sourcePoint"/>
+                        <mxPoint x="580" y="430" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="ollama-label" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="HTTP" vertex="1">
+                    <mxGeometry height="24" width="80" x="590" y="365" as="geometry"/>
+                </mxCell>
+                <mxCell id="mysql-line" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;startArrow=block;startFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="740" y="285" as="sourcePoint"/>
+                        <mxPoint x="1020" y="285" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mysql-label" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="JDBC / SQL" vertex="1">
+                    <mxGeometry height="25" width="170" x="790" y="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="env-line" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="370" y="502"/>
+                            <mxPoint x="370" y="310"/>
+                        </Array>
+                        <mxPoint x="340" y="502" as="sourcePoint"/>
+                        <mxPoint x="420" y="310" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="file-line" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=0;strokeColor=#475569;strokeWidth=2;endArrow=block;endFill=1;">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="395" y="735"/>
+                            <mxPoint x="395" y="335"/>
+                        </Array>
+                        <mxPoint x="420" y="735" as="sourcePoint"/>
+                        <mxPoint x="420" y="335" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="dbnote" parent="1" style="text;html=0;whiteSpace=wrap;overflow=hidden;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#475569;fontStyle=0;strokeColor=none;fillColor=none;spacing=0;" value="MongoDB and Neo4j also run in Docker.&#xa;The current AI flow reads and saves in MySQL." vertex="1">
+                    <mxGeometry height="60" width="390" x="1010" y="805" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

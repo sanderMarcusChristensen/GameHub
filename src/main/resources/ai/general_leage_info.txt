@@ -1,0 +1,5 @@
+League of Legends is a team-based competitive game. Two teams play against each other, and each player controls a character called a champion. Teams work together to destroy the opposing team's Nexus.
+
+A kill is recorded when a player defeats an opponent's champion. A death is recorded when that player's champion is defeated. An assist is recorded when the player contributes to defeating an opponent without getting the kill.
+
+Kills, deaths and assists describe only part of a game. A player's role, champion and other in-game actions can affect these numbers. These general facts do not establish a specific player's role, actions or reasons for their results.
