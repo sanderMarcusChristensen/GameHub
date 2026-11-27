@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.gamehub.entity.UserRole;
+import com.gamehub.enums.UserRole;
 
 @Document(collection = "users")
 public class UserDocument {

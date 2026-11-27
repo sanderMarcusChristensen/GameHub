@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.AppUser;
 import com.gamehub.entity.document.UserDocument;
+import com.gamehub.entity.jpa.AppUser;
 
 @Component
 public class UserDocumentMapper {

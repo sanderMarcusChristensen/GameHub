@@ -1,12 +1,13 @@
 package com.gamehub.service;
 
-import com.gamehub.dto.PlayerDto;
-import com.gamehub.dto.PlayerFilterDto;
-import com.gamehub.entity.Player;
+import com.gamehub.dto.PlayerFilter;
+import com.gamehub.dto.PlayerRequest;
+import com.gamehub.dto.PlayerResponse;
+import com.gamehub.entity.jpa.Player;
 import com.gamehub.exception.ResourceConflictException;
 import com.gamehub.exception.ResourceNotFoundException;
 import com.gamehub.mapper.PlayerMapper;
-import com.gamehub.repository.PlayerRepository;
+import com.gamehub.repository.jpa.PlayerRepository;
 import com.gamehub.specification.PlayerSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,22 +22,22 @@ public class PlayerService {
     private final PlayerRepository playerRepository;
     private final PlayerMapper playerMapper;
 
-    public PlayerDto create(PlayerDto playerDto) {
-        if (playerRepository.existsByNickname(playerDto.nickname())) {
-            throw new ResourceConflictException("Player with nickname '" + playerDto.nickname() + "' already exists.");
+    public PlayerResponse create(PlayerRequest request) {
+        if (playerRepository.existsByNickname(request.nickname())) {
+            throw new ResourceConflictException("Player with nickname '" + request.nickname() + "' already exists.");
         }
 
-        Player player = playerMapper.toEntity(playerDto);
+        Player player = playerMapper.toEntity(request);
         Player savedPlayer = playerRepository.save(player);
 
-        return playerMapper.toDto(savedPlayer);
+        return playerMapper.toResponse(savedPlayer);
     }
 
-    public PlayerDto getById(Long id) {
-        return playerMapper.toDto(findById(id));
+    public PlayerResponse getById(Long id) {
+        return playerMapper.toResponse(findById(id));
     }
 
-    public Page<PlayerDto> getAll(PlayerFilterDto filter, Pageable pageable
+    public Page<PlayerResponse> getAll(PlayerFilter filter, Pageable pageable
     ) {
         Specification<Player> spec = Specification.unrestricted();
 
@@ -45,20 +46,20 @@ public class PlayerService {
         }
 
         return playerRepository.findAll(spec, pageable)
-                .map(playerMapper::toDto);
+                .map(playerMapper::toResponse);
     }
 
-    public PlayerDto update(Long id, PlayerDto dto) {
+    public PlayerResponse update(Long id, PlayerRequest request) {
         Player player = findById(id);
 
-        if (!player.getNickname().equals(dto.nickname()) && playerRepository.existsByNickname(dto.nickname())) {
-            throw new ResourceConflictException("Player with nickname '" + dto.nickname() + "' already exists.");
+        if (!player.getNickname().equals(request.nickname()) && playerRepository.existsByNickname(request.nickname())) {
+            throw new ResourceConflictException("Player with nickname '" + request.nickname() + "' already exists.");
         }
 
-        player.setNickname(dto.nickname());
+        player.setNickname(request.nickname());
 
         Player savedPlayer = playerRepository.save(player);
-        return playerMapper.toDto(savedPlayer);
+        return playerMapper.toResponse(savedPlayer);
     }
 
     public void deleteById(Long id) {

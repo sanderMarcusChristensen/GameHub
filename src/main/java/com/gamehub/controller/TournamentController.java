@@ -16,7 +16,7 @@ import com.gamehub.dto.MatchResponse;
 import com.gamehub.dto.TournamentRequest;
 import com.gamehub.dto.TournamentStandingResponse;
 import com.gamehub.dto.TournamentTeamResponse;
-import com.gamehub.entity.Tournament;
+import com.gamehub.entity.jpa.Tournament;
 import com.gamehub.service.TournamentService;
 
 

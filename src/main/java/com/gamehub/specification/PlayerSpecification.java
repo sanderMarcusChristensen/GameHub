@@ -1,7 +1,8 @@
 package com.gamehub.specification;
 
-import com.gamehub.entity.Player;
 import org.springframework.data.jpa.domain.Specification;
+
+import com.gamehub.entity.jpa.Player;
 
 public class PlayerSpecification {
 

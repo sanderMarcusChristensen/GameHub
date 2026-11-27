@@ -1,20 +1,22 @@
 package com.gamehub.mapper;
 
-import com.gamehub.dto.PlayerDto;
-import com.gamehub.entity.Player;
+import com.gamehub.dto.PlayerRequest;
+import com.gamehub.dto.PlayerResponse;
+import com.gamehub.entity.jpa.Player;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class PlayerMapper {
 
-    public Player toEntity(PlayerDto playerDto) {
+    public Player toEntity(PlayerRequest request) {
         return Player.builder()
-                .nickname(playerDto.nickname())
+                .nickname(request.nickname())
                 .build();
     }
 
-    public PlayerDto toDto(Player player) {
-        return new PlayerDto(
+    public PlayerResponse toResponse(Player player) {
+        return new PlayerResponse(
                 player.getId(),
                 player.getNickname()
         );

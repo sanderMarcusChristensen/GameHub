@@ -2,7 +2,8 @@ package com.gamehub.service;
 
 import com.gamehub.dto.PlayerTeamHistory;
 import com.gamehub.exception.ResourceNotFoundException;
-import com.gamehub.graphrepository.PlayerGraphRepository;
+import com.gamehub.repository.graph.PlayerGraphRepository;
+
 import org.springframework.stereotype.Service;
 
 @Service

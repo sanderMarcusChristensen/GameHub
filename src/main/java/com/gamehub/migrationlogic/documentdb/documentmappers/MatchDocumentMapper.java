@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.Game;
-import com.gamehub.entity.Match;
-import com.gamehub.entity.MatchStatusHistory;
-import com.gamehub.entity.PlayerGameStats;
 import com.gamehub.entity.document.MatchDocument;
+import com.gamehub.entity.jpa.Game;
+import com.gamehub.entity.jpa.Match;
+import com.gamehub.entity.jpa.MatchStatusHistory;
+import com.gamehub.entity.jpa.PlayerGameStats;
 
 @Component
 public class MatchDocumentMapper {

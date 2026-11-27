@@ -34,12 +34,15 @@ https://citoapi.com/
 
 The API key must never be committed to GitHub or shared publicly.
 
+The backend exposes a passthrough endpoint for this API:
+`GET http://localhost:8080/api/cito/lol/players/{playerIdOrSlug}/stats`.
+
 ## Local setup
 
 Open the `GameHub` directory as your editor workspace. It contains `pom.xml`.
 Install JDK 21 and use the included Maven wrapper; a separate Maven install is not required.
 
-Copy `.env.example` to `.env` in this directory and fill in your API keys and local MySQL password:
+Copy `.env.example` to `.env` in this directory and fill in your API keys and the three MySQL passwords. For the full Docker-based walkthrough, see [PROJECT_SETUP.md](PROJECT_SETUP.md).
 
 ```sh
 cp .env.example .env
@@ -50,8 +53,9 @@ On Windows, use `mvnw.cmd` instead of `./mvnw`.
 Spring Boot loads the root `.env` as a properties file. Use plain `KEY=value` lines
 without quotes or `export`. Environment variables can also supply the keys.
 The current Cito endpoint requires `CITO_API_KEY`; the Riot key is for future integration.
-Set `DB_PASSWORD` to the password for the local MySQL account in `DB_USERNAME`.
-The datasource defaults to `gameHub` on `127.0.0.1:3306`; Hibernate validates the
+The backend connects as `MYSQL_APP_USERNAME` with `MYSQL_APP_PASSWORD`. The
+datasource points at `MYSQL_DATABASE` on `MYSQL_HOST:MYSQL_PORT`, which defaults to `gameHub`
+on `127.0.0.1:3307` with the supplied Compose setup. Hibernate validates the
 existing tables and does not create or modify them. `.env` is ignored by Git.
 
 Run tests with:
@@ -74,7 +78,7 @@ $session = New-Object Microsoft.PowerShell.Commands.WebRequestSession
 
 ### Registration
 
-Paste this to create a `USER` account. Choose a unique email and a password with
+There are 2 ways to register and login, either use the apps site to insert your registration/login credentials or paste this to create a `USER` account. Choose a unique email and a password with
 at least 8 characters.
 
 ```powershell
@@ -125,23 +129,24 @@ Registration only creates `USER` accounts. Admin roles must be assigned separate
 
 ## MySQL users and privileges
 
-Add the following passwords to `.env`:
+[06_users_and_privileges.sql](data/database/init/06_users_and_privileges.sql)
+creates four accounts on the first start of a fresh MySQL volume:
 
-```dotenv
-DB_PASSWORD=<gamehub_app password>
-DB_PASSWORD_ROOT=<MySQL root password>
-DB_ADMIN_PASSWORD=<gamehub_admin password>
-```
+| Account | Privileges |
+| --- | --- |
+| `gamehub_app` | SELECT, INSERT, UPDATE, DELETE and EXECUTE on `gameHub` — the backend account, limited to what the application needs. |
+| `gamehub_admin` | ALL PRIVILEGES on `gameHub`. |
+| `gamehub_readonly` | SELECT on every table and view. |
+| `gamehub_restricted` | SELECT on domain tables and views; only `id`, `role`, `is_enabled` and `created_at` from `app_users`, so `email` and `password_hash` are hidden. |
 
-From the project root, run:
+The passwords are fixed local demo values mirrored in `.env.example`; the MySQL
+image does not expand environment variables in `.sql` files, so both files must
+be updated together. Only `MYSQL_APP_*` is used by the backend. Set
+`MYSQL_ROOT_PASSWORD` to your own value.
 
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\setup_mysql_users.ps1
-```
-
-Create two MySQL Workbench connections: `gamehub_app` and `gamehub_admin`, using
-the passwords from `.env`. Use `root` only to run setup scripts.
+The accounts are created only when the volume is empty. To apply changes, remove
+the `gamehub_gamehub_db_data` volume (this deletes the local MySQL data) or run
+`ALTER USER` inside the container. Use `root` only for maintenance.
 
 Test `gamehub_app`:
 
@@ -151,43 +156,55 @@ SELECT * FROM app_users LIMIT 5;
 CREATE TABLE privilege_test (id INT);
 ```
 
-The `SELECT` should succeed and `CREATE TABLE` should be denied.
-
-Spring Boot should use `gamehub_app`; use `gamehub_admin` or `root` only for
-maintenance.
+The `SELECT` should succeed and `CREATE TABLE` should be denied. As
+`gamehub_restricted`, `SELECT * FROM app_users` should fail on the hidden
+columns, while `SELECT id, role FROM app_users` succeeds.
 
 ## Project layout
 
 ```text
 GameHub/
-├── pom.xml
-├── mvnw / mvnw.cmd
-├── .mvn/wrapper/
-├── .env.example
+├── docker-compose.yml        # MySQL, MongoDB and Neo4j for local development
+├── data/database/            # SQL schema, seed data, triggers, events, views,
+│                             # users/privileges and test queries
+├── scripts/                  # Backup, restore verification and Neo4j reset scripts
+├── doc/                      # Assignment briefs, report, ERDs and diagrams
 └── src/
-    ├── main/
-    │   ├── java/com/gamehub/
-    │   │   ├── GameHubApplication.java
-    │   │   ├── controller/  # Incoming HTTP endpoints
-    │   │   ├── client/      # Outgoing API calls (Cito, future Riot integration)
-    │   │   └── dao/         # Database access objects
-    │   └── resources/
-    │       └── application.properties
-    └── test/java/com/gamehub/
-        └── GameHubApplicationTests.java
+    ├── main/java/com/gamehub/
+    │   ├── GameHubApplication.java
+    │   ├── controller/       # HTTP endpoints
+    │   ├── dto/              # Request/response records exchanged over the API
+    │   ├── service/          # Business logic and transaction boundaries
+    │   ├── mapper/           # Entity <-> DTO conversion
+    │   ├── specification/    # JPA filtering criteria
+    │   ├── security/         # Spring Security configuration
+    │   ├── exception/        # Custom exceptions and the global handler
+    │   ├── enums/            # Enums shared by all three data models
+    │   │
+    │   ├── entity/           # Domain models, one subpackage per database
+    │   │   ├── jpa/          #   MySQL @Entity classes and composite keys
+    │   │   ├── document/     #   MongoDB @Document classes
+    │   │   └── graph/        #   Neo4j @Node records
+    │   │
+    │   ├── repository/       # Data access, mirrors entity/ exactly
+    │   │   ├── jpa/          #   Spring Data JPA repositories
+    │   │   ├── document/     #   Spring Data MongoDB repositories
+    │   │   └── graph/        #   Spring Data Neo4j repositories and Cypher queries
+    │   │
+    │   └── migrationlogic/   # One-time RDBMS -> MongoDB / Neo4j migration
+    │       ├── documentdb/   #   Migrator and document mappers
+    │       └── graphdb/      #   Migrator and graph mappers
+    └── test/java/com/gamehub/  # Unit and integration tests
 ```
 
-`dao` stands for Data Access Object. The package is ready for database classes;
-no database driver or persistence configuration has been selected yet.
-Add a `service` package when business logic needs to coordinate clients and DAOs.
+`entity/` and `repository/` use the same three-way split, so each database
+solution occupies one folder per layer. The web frontend lives in
+`src/main/resources/static` and is described under [Frontend](#frontend).
 
-Maven separates application code (`src/main/java`) from tests (`src/test/java`).
-The `com/gamehub` folders match the Java package `com.gamehub`, so keep them.
-As tests are added, mirror the package of the class under test, such as
-`src/test/java/com/gamehub/client`. Editors can display these packages compactly.
-
-The existing endpoint is:
-`GET http://localhost:8080/api/cito/lol/players/faker/stats`.
+Migration code is kept in `migrationlogic/` and only runs under the
+`migrate-mongo` and `migrate-neo4j` profiles, so it never runs during normal
+startup. See [MongoDB migration](#mongodb-migration) and
+[doc/neo4j/README.md](doc/neo4j/README.md) for the Neo4j equivalent.
 
 ## Frontend
 
@@ -201,11 +218,7 @@ After starting Spring Boot, open `http://localhost:8080/` in a browser.
 
 ## Additional backend functionality
 
-## Additional backend functionality
-
-The backend also includes relational database functionality for managing players, teams, tournaments and matches. MySQL is used as the relational database, with Spring Data JPA repositories and services handling database access. The package description in the earlier Project layout section reflects the initial project structure; the current code also uses `repository`, `documentrepository`, `graphrepository`, `service`, `migration` and `migrationlogic` packages for database access and migration work.
-
-The current Docker Compose configuration maps MySQL to host port `3307` (`3307:3306`). When using the supplied Docker Compose setup, set `DB_PORT=3307` in `.env`; MySQL still listens on port `3306` inside the container.
+The backend includes relational database functionality for managing players, teams, tournaments and matches. MySQL is the relational database, with Spring Data JPA repositories and services handling database access. MongoDB and Neo4j use the `document` and `graph` packages shown in [Project layout](#project-layout); their data is loaded by the migrator.
 
 ### Player endpoints
 
@@ -351,7 +364,31 @@ docker compose exec mongodb mongosh gamehub_documents --username admin --authent
 
 You can replace `players` in the query with `teams`, `champions`, `tournaments`, `matches` or `users` to check the other collections.
 
-## Ask the AI coach
+## Database Backup and Restore
+
+The database can be backed up and verified/restored using the provided scripts. Run these commands from the project root directory using Git Bash.
+
+1. Create a database backup
+
+Run the following command to create a backup of the database:
+
+```bash
+$ bash scripts/backup-mysql.sh
+```
+
+The script creates a backup of the database and stores it in the backups directory.
+
+2. Verify and restore a backup
+To verify and test the restoration of a backup, run:
+```bash
+$ bash scripts/verify-backup.sh
+```
+
+The verification script automatically selects the newest backup from the backups directory and uses it to test the restore process.
+
+Both scripts should be run through Git Bash.
+
+# Ask the AI coach
 
 1. Install and start [Ollama](https://ollama.com/), then download a model, for example `ollama pull qwen3:8b`. Use `ollama list` to see installed models.
 2. Add these lines to `.env`, using the name of your installed model:
@@ -367,3 +404,4 @@ You can replace `players` in the query with `teams`, `champions`, `tournaments`,
 For an existing MySQL database, run `data/database/init/07_player_ai_analysis.sql` once to create the table for saved answers. Docker runs initialization scripts automatically when creating a new MySQL volume.
 
 See [AI integration files](src/main/java/com/gamehub/ai_integration/ai-integration.md) and the [AI diagrams](doc/diagrams%20-%20files/gamehub-ai-integration.drawio).
+

@@ -31,7 +31,7 @@ import com.gamehub.dto.AuthenticatedUserResponse;
 import com.gamehub.dto.LoginRequest;
 import com.gamehub.dto.RegistrationRequest;
 import com.gamehub.dto.RegistrationResponse;
-import com.gamehub.entity.AppUser;
+import com.gamehub.entity.jpa.AppUser;
 import com.gamehub.service.RegistrationService;
 
 /** Provides public registration, CSRF-token, and login endpoints. */

@@ -13,15 +13,15 @@ import com.gamehub.dto.MatchResponse;
 import com.gamehub.dto.TournamentRequest;
 import com.gamehub.dto.TournamentStandingResponse;
 import com.gamehub.dto.TournamentTeamResponse;
-import com.gamehub.entity.Match;
-import com.gamehub.entity.Team;
-import com.gamehub.entity.Tournament;
-import com.gamehub.entity.TournamentTeam;
+import com.gamehub.entity.jpa.Match;
+import com.gamehub.entity.jpa.Team;
+import com.gamehub.entity.jpa.Tournament;
+import com.gamehub.entity.jpa.TournamentTeam;
 import com.gamehub.enums.MatchStatus;
-import com.gamehub.repository.MatchRepository;
-import com.gamehub.repository.TeamRepository;
-import com.gamehub.repository.TournamentRepository;
-import com.gamehub.repository.TournamentTeamRepository;
+import com.gamehub.repository.jpa.MatchRepository;
+import com.gamehub.repository.jpa.TeamRepository;
+import com.gamehub.repository.jpa.TournamentRepository;
+import com.gamehub.repository.jpa.TournamentTeamRepository;
 
 @Service
 public class TournamentService {
@@ -32,19 +32,19 @@ public class TournamentService {
     private final MatchRepository matchRepository;
     private final JdbcTemplate jdbcTemplate;
 
-  public TournamentService(
-    TournamentRepository tournamentRepository,
-    TournamentTeamRepository tournamentTeamRepository,
-    TeamRepository teamRepository,
-    MatchRepository matchRepository,
-    JdbcTemplate jdbcTemplate) {
+    public TournamentService(
+            TournamentRepository tournamentRepository,
+            TournamentTeamRepository tournamentTeamRepository,
+            TeamRepository teamRepository,
+            MatchRepository matchRepository,
+            JdbcTemplate jdbcTemplate) {
 
-    this.tournamentRepository = tournamentRepository;
-    this.tournamentTeamRepository = tournamentTeamRepository;
-    this.teamRepository = teamRepository;
-    this.matchRepository = matchRepository;
-    this.jdbcTemplate = jdbcTemplate;
-}
+        this.tournamentRepository = tournamentRepository;
+        this.tournamentTeamRepository = tournamentTeamRepository;
+        this.teamRepository = teamRepository;
+        this.matchRepository = matchRepository;
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public Tournament createTournament(TournamentRequest request) {
 
@@ -58,124 +58,114 @@ public class TournamentService {
         }
 
         Tournament tournament = new Tournament(
-            request.name(),
-            request.startDate(),
-            request.endDate()
-        );
+                request.name(),
+                request.startDate(),
+                request.endDate());
 
         return tournamentRepository.save(tournament);
     }
 
-   public TournamentTeamResponse registerTeam(Long tournamentId, Long teamId) {
+    public TournamentTeamResponse registerTeam(Long tournamentId, Long teamId) {
 
-    var tournament = tournamentRepository.findById(tournamentId)
-            .orElseThrow(() -> new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Tournament not found"));
+        var tournament = tournamentRepository.findById(tournamentId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Tournament not found"));
 
-    Team team = teamRepository.findById(teamId)
-            .orElseThrow(() -> new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Team not found"));
+        Team team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Team not found"));
 
-    if (tournamentTeamRepository
-            .existsByTournament_IdAndTeam_Id(tournamentId, teamId)) {
-        throw new ResponseStatusException(
-                HttpStatus.CONFLICT, "Team is already registered");
+        if (tournamentTeamRepository
+                .existsByTournament_IdAndTeam_Id(tournamentId, teamId)) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT, "Team is already registered");
+        }
+
+        TournamentTeam registration = new TournamentTeam(
+                tournament,
+                team,
+                LocalDateTime.now());
+
+        TournamentTeam savedRegistration = tournamentTeamRepository.save(registration);
+
+        return new TournamentTeamResponse(
+                tournament.getId(),
+                tournament.getName(),
+                team.getId(),
+                team.getName(),
+                savedRegistration.getRegisteredAt());
     }
 
-    TournamentTeam registration = new TournamentTeam(
-            tournament,
-            team,
-            LocalDateTime.now()
-    );
+    public MatchResponse scheduleMatch(Long tournamentId, MatchRequest request) {
 
-    TournamentTeam savedRegistration =
-            tournamentTeamRepository.save(registration);
+        // Find tournament
+        Tournament tournament = tournamentRepository.findById(tournamentId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Tournament not found"));
 
-    return new TournamentTeamResponse(
-            tournament.getId(),
-            tournament.getName(),
-            team.getId(),
-            team.getName(),
-            savedRegistration.getRegisteredAt()
-    );
-}
+        // Prevent a team from playing against itself
+        if (request.teamAId().equals(request.teamBId())) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "A team cannot play against itself");
+        }
 
-public MatchResponse scheduleMatch(Long tournamentId, MatchRequest request) {
+        // Find both teams
+        Team teamA = teamRepository.findById(request.teamAId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Team A not found"));
 
-    // Find tournament
-    Tournament tournament = tournamentRepository.findById(tournamentId)
-            .orElseThrow(() -> new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Tournament not found"));
+        Team teamB = teamRepository.findById(request.teamBId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "Team B not found"));
 
-    // Prevent a team from playing against itself
-    if (request.teamAId().equals(request.teamBId())) {
-        throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST, "A team cannot play against itself");
+        // Check that both teams are registered in the tournament
+        if (!tournamentTeamRepository.existsByTournament_IdAndTeam_Id(
+                tournamentId, teamA.getId())) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Team A is not registered in this tournament");
+        }
+
+        if (!tournamentTeamRepository.existsByTournament_IdAndTeam_Id(
+                tournamentId, teamB.getId())) {
+            throw new ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, "Team B is not registered in this tournament");
+        }
+
+        // Create match
+        Match match = new Match(
+                tournament,
+                teamA,
+                teamB,
+                request.format(),
+                MatchStatus.SCHEDULED,
+                request.scheduledAt());
+
+        Match savedMatch = matchRepository.save(match);
+
+        return new MatchResponse(
+                savedMatch.getId(),
+                tournament.getId(),
+                teamA.getId(),
+                teamA.getName(),
+                teamB.getId(),
+                teamB.getName(),
+                savedMatch.getFormat(),
+                savedMatch.getStatus(),
+                savedMatch.getScheduledAt());
     }
 
-    // Find both teams
-    Team teamA = teamRepository.findById(request.teamAId())
-            .orElseThrow(() -> new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Team A not found"));
+    public List<TournamentStandingResponse> getTournamentStandings(Long tournamentId) {
 
-    Team teamB = teamRepository.findById(request.teamBId())
-            .orElseThrow(() -> new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Team B not found"));
-
-    // Check that both teams are registered in the tournament
-    if (!tournamentTeamRepository.existsByTournament_IdAndTeam_Id(
-            tournamentId, teamA.getId())) {
-        throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST, "Team A is not registered in this tournament");
+        return jdbcTemplate.query(
+                "CALL sp_get_tournament_standings(?)",
+                (rs, rowNum) -> new TournamentStandingResponse(
+                        rs.getLong("team_id"),
+                        rs.getString("team_name"),
+                        rs.getLong("matches_played"),
+                        rs.getLong("wins"),
+                        rs.getLong("losses"),
+                        rs.getBigDecimal("match_win_rate")),
+                tournamentId);
     }
-
-    if (!tournamentTeamRepository.existsByTournament_IdAndTeam_Id(
-            tournamentId, teamB.getId())) {
-        throw new ResponseStatusException(
-                HttpStatus.BAD_REQUEST, "Team B is not registered in this tournament");
-    }
-
-    
-
-    // Create match
-    Match match = new Match(
-            tournament,
-            teamA,
-            teamB,
-            request.format(),
-            MatchStatus.SCHEDULED,
-            request.scheduledAt()
-    );
-
-    Match savedMatch = matchRepository.save(match);
-
-    return new MatchResponse(
-            savedMatch.getId(),
-            tournament.getId(),
-            teamA.getId(),
-            teamA.getName(),
-            teamB.getId(),
-            teamB.getName(),
-            savedMatch.getFormat(),
-            savedMatch.getStatus(),
-            savedMatch.getScheduledAt()
-    );
-}
-
-public List<TournamentStandingResponse> getTournamentStandings(Long tournamentId) {
-
-    return jdbcTemplate.query(
-        "CALL sp_get_tournament_standings(?)",
-        (rs, rowNum) -> new TournamentStandingResponse(
-            rs.getLong("team_id"),
-            rs.getString("team_name"),
-            rs.getLong("matches_played"),
-            rs.getLong("wins"),
-            rs.getLong("losses"),
-            rs.getBigDecimal("match_win_rate")
-        ),
-        tournamentId
-    );
-}
 
 }

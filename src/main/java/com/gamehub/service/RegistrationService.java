@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.gamehub.entity.AppUser;
-import com.gamehub.entity.UserRole;
-import com.gamehub.repository.AppUserRepository;
+import com.gamehub.entity.jpa.AppUser;
+import com.gamehub.enums.UserRole;
+import com.gamehub.repository.jpa.AppUserRepository;
 
 /** Validates and stores newly registered user accounts. */
 @Service

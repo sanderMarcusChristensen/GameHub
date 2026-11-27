@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.gamehub.entity.Champion;
 import com.gamehub.entity.document.ChampionDocument;
+import com.gamehub.entity.jpa.Champion;
 
 @Component
 public class ChampionDocumentMapper {

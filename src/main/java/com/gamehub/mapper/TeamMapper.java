@@ -2,7 +2,8 @@ package com.gamehub.mapper;
 
 import com.gamehub.dto.TeamDto;
 import com.gamehub.dto.TeamRequestDto;
-import com.gamehub.entity.Team;
+import com.gamehub.entity.jpa.Team;
+
 import org.springframework.stereotype.Component;
 
 @Component
